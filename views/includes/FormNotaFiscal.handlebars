@@ -1,0 +1,302 @@
+<div class="   col-md-4 offset-md-4">
+    <label> Tipo de Arquivo</label>
+    <select onchange="selectedType()" id="formSelect" class="form-select" aria-label="Default select example">
+        <option value="0"></option>
+        <option value="1">Alvará</option>
+        <option value="2">Comprovante</option>
+        <option value="3">Contrato</option>
+        <option value="4">Fatura</option>
+        <option value="5">Nota Fiscal</option>
+        <option value="6">Outros Arquivos</option>
+    </select>
+</div>
+
+<div id="FormNotaFiscal" hidden>
+    <form action="/home" method="POST" name="formulario">
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Cod. Filial</label>
+                <select name="cod_filial" class="form-select" aria-label="Default select example">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
+                    <option value="3">6</option>
+                    <option value="3">7</option>
+                    <option value="3">8</option>
+                    <option value="3">98</option>
+                    <option value="3">99</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Nº Nota</label>
+                <input type="text" name="login" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Cod. Cliente </label>
+                <input type="text" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Nº Pedido </label>
+                <input type="text" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> CPF/CNPJ </label>
+                <input type="text" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Data de Emissão</label>
+                <input type="date" name="login" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Anexo de arquivo </label>
+                <input type="file" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Inserir" class="btn btn-dark" name="">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div id="FormAlvara" hidden>
+    <form action="/home" method="POST" name="formulario">
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Número Alvará</label>
+                <input type="text" name="login" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> CPF/CNPJ </label>
+                <input type="text" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Data de Emissão</label>
+                <input type="date" name="login" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Data de Validade</label>
+                <input type="date" name="login" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Anexo de arquivo </label>
+                <input type="file" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Inserir" class="btn btn-dark" name="">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<div id="FormComprovante" hidden>
+    <form action="/home" method="POST" name="formulario">
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Nome Beneficiário</label>
+                <input type="text" name="nomeBeneficiario" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> CPF/CNPJ Beneficiário</label>
+                <input type="text" name="documentoBeneficiario" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Nome Pagador</label>
+                <input type="text" name="nomePagador" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>CPF/CNPF Pagador</label>
+                <input type="text" name="documentoPagador" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Data Pagamento</label>
+                <input type="date" name="dataPagamento" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Valor Pagamento</label>
+                <input type="text" name="documentoPagador" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Anexo de arquivo </label>
+                <input type="file" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Inserir" class="btn btn-dark" name="">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+<div id="FormContrato" hidden>
+    <form action="/home" method="POST" name="formulario">
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> CPF/CNPJ Empregador</label>
+                <input type="text" name="documentoEmpregador" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label> Nome Empregado</label>
+                <input type="text" name="nomeEmpregado" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>CPF Empregado</label>
+                <input type="text" name="documentoEmpregado" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Cargo</label>
+                <input type="text" name="cargoEmpregado" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Valor Salário</label>
+                <input type="number" name="salarioEmpregado" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Anexo de arquivo </label>
+                <input type="file" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Inserir" class="btn btn-dark" name="">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+<div id="FormFatura" hidden>
+    <form action="/home" method="POST" name="formulario">
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Nº Fatura</label>
+                <input type="text" name="numeroFatura" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Data de Emissão</label>
+                <input type="date" name="emissaoFatura" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Data de Vencimento</label>
+                <input type="date" name="vencimentoFatura" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="   col-md-6 offset-md-3">
+                <label>Valor</label>
+                <input type="text" name="valorFatura" class="form-control " placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label> Anexo de arquivo </label>
+                <input type="file" name="rg" class="form-control" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Inserir" class="btn btn-dark" name="">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/newFile.js"></script>

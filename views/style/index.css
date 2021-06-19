@@ -1,0 +1,39 @@
+nav{
+    margin-bottom: 2%;
+    background-color: rgb(10, 17, 104);
+    font-size: 40px;
+}
+
+button{
+    background-color: black;
+}
+
+.col-md-4.offset-md-4{
+    display: flex;
+}
+
+.col-md-4.offset-md-4 label{
+    font-size: 17px;
+    width: 40%;
+}
+
+.col-md-6.offset-md-3{
+    margin-top: 0.9%;
+}
+
+.animation{
+    scroll-behavior: smooth;
+}
+
+#FormNotaFiscal, #FormAlvara, #FormComprovante, #FormContrato, #FormFatura{
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
