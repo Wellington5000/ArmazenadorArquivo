@@ -1,0 +1,258 @@
+<div class="aux">
+    <div class="col-md-1.2 offset-md-3" id="selectedFilter">
+        <label> Tipo de Arquivo</label>
+        <select onchange="selectedType()" id="formSelect" class="form-select" aria-label="Default select example">
+            <option value="1">Alvará</option>
+            <option value="2">Comprovante</option>
+            <option value="3">Contrato</option>
+            <option value="4">Fatura</option>
+            <option value="5">Nota Fiscal</option>
+            <option value="6">Outros Arquivos</option>
+        </select>
+    </div>
+</div>
+
+
+<div id="FormFilterAlvara">
+    <div class="row1">
+        <div class="   col-md-2 offset-md-7">
+            <label> Nº Alvará</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> CPF/CNPJ </label>
+            <input type="text" name="rg" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="   col-md-2 offset-md-4">
+            <label> Data de Emissão</label>
+            <input type="date" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label> Data de Validade</label>
+            <input type="date" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <input type="submit" value="Consultar" class="btn btn-dark" name="">
+        </div>
+    </div>
+</div>
+
+
+
+<div id="FormFilterComprovante" hidden>
+    <div class="row1">
+        <div class="   col-md-2 offset-md-7">
+            <label> Nome Beneficiário</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> CPF/CNPJ Beneficiário</label>
+            <input type="text" name="rg" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="   col-md-2 offset-md-4">
+            <label>Nome Pagador</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label> CPF/CNPJ Pagador</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label> Data Pagamento</label>
+            <input type="date" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <input type="submit" value="Consultar" class="btn btn-dark" name="">
+        </div>
+    </div>
+</div>
+
+
+
+<div id="FormFilterContrato" hidden>
+    <div class="row1">
+        <div class="   col-md-2 offset-md-7">
+            <label> CPF/CNPJ Empregador</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> Nome Empregado </label>
+            <input type="text" name="rg" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="   col-md-2 offset-md-4">
+            <label> CPF Empregado</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label> Cargo</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <input type="submit" value="Consultar" class="btn btn-dark" name="">
+        </div>
+    </div>
+</div>
+
+
+
+<div id="FormFilterFatura" hidden>
+    <div class="row1">
+        <div class="   col-md-2 offset-md-7">
+            <label> Nº Fatura</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> Data Emissão </label>
+            <input type="text" name="rg" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="   col-md-2 offset-md-4">
+            <label> Data Vencimento</label>
+            <input type="text" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <input type="submit" value="Consultar" class="btn btn-dark" name="">
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="FormFilterNotaFiscal" hidden>
+    <div class="row1">
+        <div class="   col-md-2 offset-md-7">
+            <label> Cod. Filial</label>
+            <select name="cod_filial" class="form-select" aria-label="Default select example">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="98">98</option>
+                <option value="99">99</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> Nº Nota</label>
+            <input type="number" name="rg" class="form-control" placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <label> Data Emissão</label>
+            <input type="date" name="rg" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row2">
+        <div class="   col-md-2 offset-md-4">
+            <label>Cod Cliente</label>
+            <input type="number" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label> CPF/CNPJ Cliente</label>
+            <input type="number" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="   col-md-2 offset-md-1">
+            <label>Nº Pedido</label>
+            <input type="number" name="login" class="form-control " placeholder="">
+        </div>
+
+        <div class="col-md-2 offset-md-1">
+            <input type="submit" value="Consultar" class="btn btn-dark" name="">
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+
+
+<div class="containerTable">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nº Alvará</th>
+                        <th scope="col">CPF/CNPJ</th>
+                        <th scope="col">Data Emissão</th>
+                        <th scope="col">Data Validade</th>
+                        <th scope="col">Arquivo</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">332135</th>
+                        <td>815.080.003-44</td>
+                        <td>31/01/2016</td>
+                        <td>05/06/2021</td>
+                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
+                        <td>
+                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">332135</th>
+                        <td>815.080.003-44</td>
+                        <td>31/01/2016</td>
+                        <td>05/06/2021</td>
+                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
+                        <td>
+                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">332135</th>
+                        <td>815.080.003-44</td>
+                        <td>31/01/2016</td>
+                        <td>05/06/2021</td>
+                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
+                        <td>
+                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="Consult.js"></script>

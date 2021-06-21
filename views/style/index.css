@@ -1,3 +1,7 @@
+body{
+    background-color: #fffef6;
+}
+
 nav{
     margin-bottom: 2%;
     background-color: rgb(10, 17, 104);
@@ -29,11 +33,51 @@ button{
     animation: fadeIn 1s;
 }
 
+#btnNew{
+    
+    margin-left: 60%;
+}
+
 @keyframes fadeIn{
     from {
         opacity: 0;
     }
     to {
         opacity: 1;
+    }
+}
+
+
+
+.logo{
+    width: 900px;
+    margin: 15% auto;
+    text-align: center;
+}
+
+.logo h1{
+    font-weight: bold;
+    font-size: 60px;
+    animation: flow 10s ease-in-out infinite;
+    background: linear-gradient(-60deg,#5590e7, black, #5590e7, black);
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes flow{
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    75% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 0 100%;
     }
 }

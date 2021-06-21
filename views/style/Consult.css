@@ -1,0 +1,47 @@
+#selectedFilter{
+    position: absolute;
+    width: 12.5%;
+}
+
+.row1{
+    width: 75%;
+    display: flex;
+}
+
+.row2{
+    width: 75%;
+    display: flex;
+}
+
+.row2 input[type=submit]{
+    width: 100%;
+    margin-top: 24px;
+}
+
+#FormFilterAlvara, #FormFilterComprovante, #FormFilterContrato, #FormFilterFatura, #FormFilterNotaFiscal, .containerTable{
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+
+.containerTable {
+    width: 60%;
+    margin: auto;
+    padding: 2rem 0rem;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image td, th {
+      vertical-align: middle;
+  }

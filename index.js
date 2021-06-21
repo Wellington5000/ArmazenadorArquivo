@@ -36,9 +36,9 @@ app.get('/home', (req, res) => {
     res.render('includes/FormNotaFiscal')
 })
 
-app.post('/teste', upload.single('arquivo'), (req, res) => {
-    console.log(req.body, req.body.nome, req.body.arquivo, req.body.cargo)
-    res.redirect('/')
+app.get('/consult', (req, res) => {
+    res.render('includes/Consult')
 })
+
 
 app.listen(3000);
