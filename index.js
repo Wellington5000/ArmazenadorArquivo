@@ -3,8 +3,8 @@ const bodyParser = require('body-parser')
 const upload = require('./multer')
 const handlebars = require('express-handlebars')
 const path = require('path')
-
 const app = express()
+const project = require('./controllers/project')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
@@ -24,21 +24,6 @@ app.use(express.static(path.join(__dirname, './uploads/')))
 app.use(express.static(path.join(__dirname, './views/style/')))
 app.use(express.static(path.join(__dirname, './views/scripts')))
 
-app.get('/', (req, res) => {
-    res.render('includes/index')
-})
-
-app.get('/login', (req, res) => {
-    res.render('includes/FormLogin')
-})
-
-app.get('/home', (req, res) => {
-    res.render('includes/FormNotaFiscal')
-})
-
-app.get('/consult', (req, res) => {
-    res.render('includes/Consult')
-})
-
+app.use('/', project)
 
 app.listen(3000);
