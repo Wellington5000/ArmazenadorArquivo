@@ -5,6 +5,7 @@ const handlebars = require('express-handlebars')
 const path = require('path')
 const app = express()
 const project = require('./controllers/project')
+const newDocument = require('./controllers/newDocument')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
@@ -25,5 +26,6 @@ app.use(express.static(path.join(__dirname, './views/style/')))
 app.use(express.static(path.join(__dirname, './views/scripts')))
 
 app.use('/', project)
+app.use('/novo', newDocument)
 
 app.listen(3000);
