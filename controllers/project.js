@@ -2,15 +2,16 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', async (req, res) => {
-    res.render('includes/index')
+    res.render('includes/index', {success: false})
 })
 
-router.get('/home', (req, res) => {
-    res.render('includes/FormNotaFiscal')
+router.get('/novo', (req, res) => {
+    console.log(req.params.valid)
+    res.render('includes/FormNotaFiscal', {success: req.params.valid})
 })
 
-router.get('/consult', (req, res) => {
-    res.render('includes/Consult')
+router.get('/consultar', (req, res) => {
+    res.render('includes/Consult', {texto: 'Wellington'})
 })
 
 module.exports = router

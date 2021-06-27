@@ -9,7 +9,6 @@ const PaymentVoucher = Database.define('comprovante', {
         allowNull: false,
         primaryKey: true
     },
-    nome_beneficiario: Sequelize.STRING,
     cpf_cnpj_beneficiario: Sequelize.STRING,
     nome_pagador: Sequelize.STRING,
     cpf_cnpj_pagador: Sequelize.STRING,

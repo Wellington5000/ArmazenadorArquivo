@@ -101,7 +101,7 @@
 
 
 <div id="FormAlvara" hidden>
-    <form action="/novo/alvara" method="POST" name="formulario">
+    <form action="/novo/alvara" method="POST" name="formulario" enctype="multipart/form-data">
         <div class="form-group">
             <div class="   col-md-6 offset-md-3">
                 <label> Nº Alvará</label>
@@ -158,14 +158,7 @@
 
 
 <div id="FormComprovante" hidden>
-    <form action="/novo/comprovante" method="POST" name="formulario">
-        <div class="form-group">
-            <div class="   col-md-6 offset-md-3">
-                <label>Nome Beneficiário</label>
-                <input type="text" name="nome_beneficiario" class="form-control " placeholder="">
-            </div>
-        </div>
-
+    <form action="/novo/comprovante" method="POST" name="formulario" enctype="multipart/form-data">
         <div class="form-group">
             <div class="col-md-6 offset-md-3">
                 <label> CPF/CNPJ Beneficiário</label>
@@ -228,7 +221,7 @@
 
 
 <div id="FormContrato" hidden>
-    <form action="/novo/contrato" method="POST" name="formulario">
+    <form action="/novo/contrato" method="POST" name="formulario" enctype="multipart/form-data">
         <div class="form-group">
             <div class="col-md-6 offset-md-3">
                 <label> CPF/CNPJ Empregador</label>
@@ -279,7 +272,7 @@
 
 
 <div id="FormFatura" hidden>
-    <form action="/novo/fatura" method="POST" name="formulario">
+    <form action="/novo/fatura" method="POST" name="formulario" enctype="multipart/form-data">
         <div class="form-group">
             <div class="col-md-6 offset-md-3">
                 <label> Nº Fatura</label>
@@ -322,5 +315,7 @@
         </div>
     </form>
 </div>
+
+
 
 <script src="/newFile.js"></script>

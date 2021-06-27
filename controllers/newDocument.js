@@ -18,10 +18,9 @@ const NotaFiscal = require('../models/documents/note')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded())
 
 router.post('/cadastrar_empresa', async (req, res) => {
-    await Database.sync();
     await Empresa.create({
         razao_social: 'Agroserrana Distribuidora de Produtos Agropecuários',
         cnpj: '12.345.678/0001.23',
@@ -33,7 +32,6 @@ router.post('/cadastrar_empresa', async (req, res) => {
 
 router.get('/cadastrar_funcionario', async (req, res) => {
     const hash = await bcrypt.hash('Qmj#3p@52', 10)
-    //await Funcionario.sync({force: true})
     await Funcionario.create({
         nome: 'Wellington dos Santos Teixeira',
         cargo: 'Estagiário TI',
@@ -56,57 +54,57 @@ router.get('/cadastrar_filial', async (req, res) => {
     })
 })
 
-router.post('/alvara', async (req, res) => {
-    await Database.sync();
+router.post('/alvara', upload.single('diretorio'), async (req, res) => {
+    //await Database.sync();
     await Alvara.create({
-        num_alvara: req.body,
-        cnpj: req.body,
-        data_emissao: req.body,
-        data_validade: req.body,
-        diretorio: req.body
+        num_alvara: req.body.num_alvara,
+        cnpj: req.body.cnpj,
+        data_emissao: req.body.data_emissao,
+        data_validade: req.body.data_validade,
+        diretorio: req.file.originalname
     })
 
-    res.redirect('/')
+    res.redirect('/novo')
 })
 
-router.post('/comprovante', async (req, res) => {
-    await Database.sync();
+router.post('/comprovante', upload.single('diretorio'), async (req, res) => {
+    //await Database.sync();
     await Comprovante.create({
-        nome_beneficiario: req.body,
-        cpf_cnpj_beneficiario: req.body,
-        nome_pagador: req.body,
-        cpf_cnpj_pagador: req.body,
-        data_pagamento: req.body,
-        diretorio: req.body
+        nome_beneficiario: req.body.nome_beneficiario,
+        cpf_cnpj_beneficiario: req.body.cpf_cnpj_beneficiario,
+        nome_pagador: req.body.nome_pagador,
+        cpf_cnpj_pagador: req.body.cpf_cnpj_pagador,
+        data_pagamento: req.body.data_pagamento,
+        diretorio: req.file.originalname
     })
-
-    res.redirect('/')
+    
+    res.redirect('/novo')
 })
 
-router.post('/contrato', async (req, res) => {
-    await Database.sync();
+router.post('/contrato', upload.single('diretorio'), async (req, res) => {
+    //await Database.sync();
     await Contrato.create({
-        cnpj_empregador: req.body,
-        nome_empregado: req.body,
-        cpf_empregado: req.body,
-        cargo: req.body,
-        diretorio: req.body
+        cnpj_empregador: req.body.cnpj_empregador,
+        nome_empregado: req.body.nome_empregado,
+        cpf_empregado: req.body.cpf_empregado,
+        cargo: req.body.cargo,
+        diretorio: req.file.originalname
     })
 
-    res.redirect('/')
+    res.redirect('/novo')
 })
 
-router.post('/fatura', async (req, res) => {
-    await Database.sync();
+router.post('/fatura', upload.single('diretorio'), async (req, res) => {
+    //await Database.sync();
     await Fatura.create({
-        num_fatura: req.body,
-        data_emissao: req.body,
-        data_vencimento: req.body,
-        valor: req.body,
-        diretorio: req.body
+        num_fatura: req.body.num_alvara,
+        data_emissao: req.body.data_emissao,
+        data_vencimento: req.body.data_vencimento,
+        valor: req.body.valor,
+        diretorio: req.file.originalname
     })
 
-    res.redirect('/')
+    res.redirect('/novo')
 })
 
 router.post('/nota_fiscal', upload.single('diretorio'), async (req, res) => {
@@ -120,13 +118,13 @@ router.post('/nota_fiscal', upload.single('diretorio'), async (req, res) => {
         diretorio: req.file.originalname
     })
 
-    res.redirect('/home')
+    res.redirect('/novo')
 })
 
 router.post('/teste', upload.single('diretorio'), (req, res) => {
     var filial = req.file.originalname
     console.log(filial)
-    res.redirect('/home')
+    res.redirect('/novo')
 })
 
 module.exports = router

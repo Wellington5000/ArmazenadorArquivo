@@ -13,108 +13,106 @@
 </div>
 
 
-<div id="FormFilterAlvara">
+<form action="/consultar/alvara" id="FormFilterAlvara" method="post">
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
             <label> Nº Alvará</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="num_alvara" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
-            <label> CPF/CNPJ </label>
-            <input type="text" name="rg" class="form-control" placeholder="">
+            <label> CNPJ </label>
+            <input type="text" name="cnpj" class="form-control" placeholder="">
         </div>
     </div>
 
     <div class="row2">
         <div class="   col-md-2 offset-md-4">
             <label> Data de Emissão</label>
-            <input type="date" name="login" class="form-control " placeholder="">
+            <input type="date" name="data_emissao" class="form-control " placeholder="">
         </div>
 
         <div class="   col-md-2 offset-md-1">
             <label> Data de Validade</label>
-            <input type="date" name="login" class="form-control " placeholder="">
+            <input type="date" name="data_validade" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
             <input type="submit" value="Consultar" class="btn btn-dark" name="">
         </div>
     </div>
-</div>
+</form>
 
 
 
-<div id="FormFilterComprovante" hidden>
+
+
+<form action="/consultar/comprovante" id="FormFilterComprovante" method="post" hidden>
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
-            <label> Nome Beneficiário</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <label> CPF/CNPJ Beneficiário</label>
+            <input type="text" name="cpf_cnpj_beneficiario" class="form-control" placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
-            <label> CPF/CNPJ Beneficiário</label>
-            <input type="text" name="rg" class="form-control" placeholder="">
+            <label>Nome Pagador</label>
+            <input type="text" name="nome_pagador" class="form-control " placeholder="">
         </div>
     </div>
 
     <div class="row2">
         <div class="   col-md-2 offset-md-4">
-            <label>Nome Pagador</label>
-            <input type="text" name="login" class="form-control " placeholder="">
-        </div>
-
-        <div class="   col-md-2 offset-md-1">
             <label> CPF/CNPJ Pagador</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="cpf_cnpj_pagador" class="form-control " placeholder="">
         </div>
 
         <div class="   col-md-2 offset-md-1">
             <label> Data Pagamento</label>
-            <input type="date" name="login" class="form-control " placeholder="">
+            <input type="date" name="data_pagamento" class="form-control " placeholder="">
         </div>
 
-        <div class="col-md-2 offset-md-1">
+        <div class="   col-md-2 offset-md-1">
             <input type="submit" value="Consultar" class="btn btn-dark" name="">
         </div>
     </div>
-</div>
+</form>
 
 
 
-<div id="FormFilterContrato" hidden>
+<form action="/consultar/contrato" id="FormFilterContrato" method="post" hidden>
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
             <label> CPF/CNPJ Empregador</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="cnpj_empregador" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
             <label> Nome Empregado </label>
-            <input type="text" name="rg" class="form-control" placeholder="">
+            <input type="text" name="nome_empregado" class="form-control" placeholder="">
         </div>
     </div>
 
     <div class="row2">
         <div class="   col-md-2 offset-md-4">
             <label> CPF Empregado</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="cpf_empregado" class="form-control " placeholder="">
         </div>
 
         <div class="   col-md-2 offset-md-1">
             <label> Cargo</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="cargo" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
             <input type="submit" value="Consultar" class="btn btn-dark" name="">
         </div>
     </div>
-</div>
+</form>
 
 
 
-<div id="FormFilterFatura" hidden>
+
+<form action="/consultar/fatura" id="FormFilterFatura" method="post" hidden>
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
             <label> Nº Fatura</label>
@@ -133,16 +131,23 @@
             <input type="text" name="login" class="form-control " placeholder="">
         </div>
 
+        <div class="   col-md-2 offset-md-1">
+            <label> Valor</label>
+            <input type="number" name="login" class="form-control " placeholder="">
+        </div>
+
         <div class="col-md-2 offset-md-1">
             <input type="submit" value="Consultar" class="btn btn-dark" name="">
         </div>
     </div>
-</div>
+
+</form>
 
 
 
 
-<div id="FormFilterNotaFiscal" hidden>
+
+<form action="/consultar/nota_fiscal" id="FormFilterNotaFiscal" method="post" hidden>
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
             <label> Cod. Filial</label>
@@ -191,7 +196,8 @@
             <input type="submit" value="Consultar" class="btn btn-dark" name="">
         </div>
     </div>
-</div>
+</form>
+
 
 
 
@@ -204,55 +210,38 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Nº Alvará</th>
-                        <th scope="col">CPF/CNPJ</th>
-                        <th scope="col">Data Emissão</th>
-                        <th scope="col">Data Validade</th>
-                        <th scope="col">Arquivo</th>
-                        <th scope="col">Actions</th>
+                        {{#each cabecalho}}
+                        <th scope="col">{{this}}</th>
+                        {{/each}}
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each result}}
                     <tr>
-                        <th scope="row">332135</th>
-                        <td>815.080.003-44</td>
-                        <td>31/01/2016</td>
-                        <td>05/06/2021</td>
-                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
+                        <td scope="row">{{campo1}}</td>
+                        <td>{{campo2}}</td>
+                        {{#if dataValues}}
+                            <td>{{#formatDate campo3}}{{/formatDate}}</td>
+                        {{else}}
+                            <td>{{campo3}}</td>
+                        {{/if}}
+                        {{#if dataValues}}
+                            <td>{{#formatDate campo4}}{{/formatDate}}</td>
+                        {{else}}
+                            <td>{{campo4}}</td>
+                        {{/if}}
+                        <td><a href="/{{campo5}}">{{campo5}}</a></td>
                         <td>
                             <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
                             <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                             <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">332135</th>
-                        <td>815.080.003-44</td>
-                        <td>31/01/2016</td>
-                        <td>05/06/2021</td>
-                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
-                        <td>
-                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">332135</th>
-                        <td>815.080.003-44</td>
-                        <td>31/01/2016</td>
-                        <td>05/06/2021</td>
-                        <td><a href="/RELATORIO.pdf">Relatório</a></td>
-                        <td>
-                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<script src="Consult.js"></script>
+<script src="/Consult.js"></script>
