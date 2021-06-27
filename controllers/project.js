@@ -6,7 +6,6 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/novo', (req, res) => {
-    console.log(req.params.valid)
     res.render('includes/FormNotaFiscal', {success: req.params.valid})
 })
 

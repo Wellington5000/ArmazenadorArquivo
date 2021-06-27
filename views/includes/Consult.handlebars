@@ -116,24 +116,19 @@
     <div class="row1">
         <div class="   col-md-2 offset-md-7">
             <label> Nº Fatura</label>
-            <input type="text" name="login" class="form-control " placeholder="">
+            <input type="text" name="num_fatura" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
             <label> Data Emissão </label>
-            <input type="text" name="rg" class="form-control" placeholder="">
+            <input type="date" name="data_emissao" class="form-control" placeholder="">
         </div>
     </div>
 
     <div class="row2">
         <div class="   col-md-2 offset-md-4">
             <label> Data Vencimento</label>
-            <input type="text" name="login" class="form-control " placeholder="">
-        </div>
-
-        <div class="   col-md-2 offset-md-1">
-            <label> Valor</label>
-            <input type="number" name="login" class="form-control " placeholder="">
+            <input type="date" name="data_vencimento" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
@@ -167,29 +162,19 @@
 
         <div class="col-md-2 offset-md-1">
             <label> Nº Nota</label>
-            <input type="number" name="rg" class="form-control" placeholder="">
-        </div>
-
-        <div class="col-md-2 offset-md-1">
-            <label> Data Emissão</label>
-            <input type="date" name="rg" class="form-control" placeholder="">
+            <input type="number" name="num_nota" class="form-control" placeholder="">
         </div>
     </div>
 
     <div class="row2">
         <div class="   col-md-2 offset-md-4">
             <label>Cod Cliente</label>
-            <input type="number" name="login" class="form-control " placeholder="">
-        </div>
-
-        <div class="   col-md-2 offset-md-1">
-            <label> CPF/CNPJ Cliente</label>
-            <input type="number" name="login" class="form-control " placeholder="">
+            <input type="number" name="cod_cliente" class="form-control " placeholder="">
         </div>
 
         <div class="   col-md-2 offset-md-1">
             <label>Nº Pedido</label>
-            <input type="number" name="login" class="form-control " placeholder="">
+            <input type="number" name="num_pedido" class="form-control " placeholder="">
         </div>
 
         <div class="col-md-2 offset-md-1">
@@ -219,13 +204,17 @@
                     {{#each result}}
                     <tr>
                         <td scope="row">{{campo1}}</td>
-                        <td>{{campo2}}</td>
-                        {{#if dataValues}}
+                        {{#if data2}}
+                            <td>{{#formatDate campo2}}{{/formatDate}}</td>
+                        {{else}}
+                            <td>{{campo2}}</td>
+                        {{/if}}
+                        {{#if data3}}
                             <td>{{#formatDate campo3}}{{/formatDate}}</td>
                         {{else}}
                             <td>{{campo3}}</td>
                         {{/if}}
-                        {{#if dataValues}}
+                        {{#if data4}}
                             <td>{{#formatDate campo4}}{{/formatDate}}</td>
                         {{else}}
                             <td>{{campo4}}</td>

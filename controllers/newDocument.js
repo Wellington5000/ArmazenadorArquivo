@@ -95,12 +95,10 @@ router.post('/contrato', upload.single('diretorio'), async (req, res) => {
 })
 
 router.post('/fatura', upload.single('diretorio'), async (req, res) => {
-    //await Database.sync();
     await Fatura.create({
-        num_fatura: req.body.num_alvara,
+        num_fatura: req.body.num_fatura,
         data_emissao: req.body.data_emissao,
         data_vencimento: req.body.data_vencimento,
-        valor: req.body.valor,
         diretorio: req.file.originalname
     })
 
@@ -113,8 +111,6 @@ router.post('/nota_fiscal', upload.single('diretorio'), async (req, res) => {
         num_nota: req.body.num_nota,
         cod_cliente: req.body.cod_cliente,
         num_pedido: req.body.num_pedido,
-        cpf_cnpj: req.body.cpf_cnpj,
-        data_emissao: req.body.data_emissao,
         diretorio: req.file.originalname
     })
 

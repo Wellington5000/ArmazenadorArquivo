@@ -19,8 +19,6 @@ const Note = Database.define('nota_fiscal', {
     },
     cod_cliente: Sequelize.INTEGER,
     num_pedido: Sequelize.INTEGER,
-    cpf_cnpj: Sequelize.STRING,
-    data_emissao: Sequelize.DATE,
     diretorio: Sequelize.STRING
 })
 

@@ -12,7 +12,6 @@ const Invoice = Database.define('fatura', {
     num_fatura: Sequelize.INTEGER,
     data_emissao: Sequelize.DATE,
     data_vencimento: Sequelize.DATE,
-    valor: Sequelize.FLOAT,
     diretorio: Sequelize.STRING
 })
 
