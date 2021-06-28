@@ -1,0 +1,20 @@
+.formLogin{
+    width: 400px;
+    height: 400px;
+    margin: 8% auto;
+    box-shadow: 0 5px 5px 0 rgb(0, 36, 114), 0 0 0 0.1px rgb(14, 0, 90);
+    border-radius: 10px;
+}
+
+.formLogin .tems{
+    margin-top: 100px;
+}
+
+.formLogin h3{
+    margin-top: 2%;
+    text-align: center;
+}
+
+.formLogin .col-md-8.offset-md-2{
+    margin-top: 5%; 
+}
