@@ -8,6 +8,10 @@ const project = require('./controllers/project')
 const newDocument = require('./controllers/newDocument')
 const Consult = require('./controllers/consult')
 const moment = require('moment')
+const cookieParser = require('cookie-parser')
+
+//Configura a utilização de cookies
+app.use(cookieParser())
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())

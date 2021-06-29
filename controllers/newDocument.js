@@ -15,12 +15,13 @@ const Comprovante = require('../models/documents/payment_voucher')
 const Contrato = require('../models/documents/contract')
 const Fatura = require('../models/documents/invoice')
 const NotaFiscal = require('../models/documents/note')
+const authMiddleware = require('../authMiddleware')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
 app.use(express.urlencoded())
 
-router.post('/cadastrar_empresa', async (req, res) => {
+router.post('/cadastrar_empresa', authMiddleware, async (req, res) => {
     await Empresa.create({
         razao_social: 'Agroserrana Distribuidora de Produtos Agropecuários',
         cnpj: '12.345.678/0001.23',
@@ -30,7 +31,7 @@ router.post('/cadastrar_empresa', async (req, res) => {
     })
 })
 
-router.get('/cadastrar_funcionario', async (req, res) => {
+router.get('/cadastrar_funcionario', authMiddleware, async (req, res) => {
     const hash = await bcrypt.hash('Qmj#3p@52', 10)
     await Funcionario.create({
         nome: 'Wellington dos Santos Teixeira',
@@ -42,7 +43,7 @@ router.get('/cadastrar_funcionario', async (req, res) => {
     })
 })
 
-router.get('/cadastrar_filial', async (req, res) => {
+router.get('/cadastrar_filial', authMiddleware, async (req, res) => {
     await Filial.create({
         id: 99,
         razao_social: 'Todas',
@@ -54,7 +55,7 @@ router.get('/cadastrar_filial', async (req, res) => {
     })
 })
 
-router.post('/alvara', upload.single('diretorio'), async (req, res) => {
+router.post('/alvara', upload.single('diretorio'), authMiddleware, async (req, res) => {
     //await Database.sync();
     await Alvara.create({
         num_alvara: req.body.num_alvara,
@@ -67,7 +68,7 @@ router.post('/alvara', upload.single('diretorio'), async (req, res) => {
     res.redirect('/novo')
 })
 
-router.post('/comprovante', upload.single('diretorio'), async (req, res) => {
+router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (req, res) => {
     //await Database.sync();
     await Comprovante.create({
         nome_beneficiario: req.body.nome_beneficiario,
@@ -81,7 +82,7 @@ router.post('/comprovante', upload.single('diretorio'), async (req, res) => {
     res.redirect('/novo')
 })
 
-router.post('/contrato', upload.single('diretorio'), async (req, res) => {
+router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req, res) => {
     //await Database.sync();
     await Contrato.create({
         cnpj_empregador: req.body.cnpj_empregador,
@@ -94,7 +95,7 @@ router.post('/contrato', upload.single('diretorio'), async (req, res) => {
     res.redirect('/novo')
 })
 
-router.post('/fatura', upload.single('diretorio'), async (req, res) => {
+router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, res) => {
     await Fatura.create({
         num_fatura: req.body.num_fatura,
         data_emissao: req.body.data_emissao,
@@ -105,7 +106,7 @@ router.post('/fatura', upload.single('diretorio'), async (req, res) => {
     res.redirect('/novo')
 })
 
-router.post('/nota_fiscal', upload.single('diretorio'), async (req, res) => {
+router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (req, res) => {
     await NotaFiscal.create({
         cod_filial: req.body.cod_filial,
         num_nota: req.body.num_nota,
@@ -114,12 +115,6 @@ router.post('/nota_fiscal', upload.single('diretorio'), async (req, res) => {
         diretorio: req.file.originalname
     })
 
-    res.redirect('/novo')
-})
-
-router.post('/teste', upload.single('diretorio'), (req, res) => {
-    var filial = req.file.originalname
-    console.log(filial)
     res.redirect('/novo')
 })
 

@@ -17,13 +17,14 @@ const Contrato = require('../models/documents/contract')
 const Fatura = require('../models/documents/invoice')
 const NotaFiscal = require('../models/documents/note')
 const Sequelize = require('sequelize')
+const authMiddleware = require('../authMiddleware')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 const Op = Sequelize.Op
 
-router.post('/alvara', async (req, res) => {
+router.post('/alvara', authMiddleware, async (req, res) => {
     const cabecalho = ['Nº Alvará', 'CNPJ', 'Data Emissão', 'Data Validade', 'Arquivo', 'Ações'];
     //await Alvara.destroy({ truncate : true, cascade: false })
     (req.body.data_emissao) ? dataValidaEmissao = req.body.data_emissao : dataValidaEmissao = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
@@ -37,7 +38,7 @@ router.post('/alvara', async (req, res) => {
             data_validade: dataValidaValidade
         }
     })
-    console.log(result)
+    
     result.map((item, index) => {
         result[index].campo1 = item.num_alvara;
         result[index].campo2 = item.cnpj;
@@ -55,7 +56,7 @@ router.post('/alvara', async (req, res) => {
     res.render('includes/Consult', { result: result, cabecalho: cabecalho })
 })
 
-router.post('/comprovante', async (req, res) => {
+router.post('/comprovante', authMiddleware, async (req, res) => {
     const cabecalho = ['CPF/CNPJ Beneficiário', 'Nome Pagador', 'CPF/CNPJ Pagador', 'Data Pagamento', 'Arquivo', 'Ações'];
     (req.body.data_pagamento) ? dataValidaPagamento = req.body.data_pagamento : dataValidaPagamento = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
 
@@ -85,7 +86,7 @@ router.post('/comprovante', async (req, res) => {
     res.render('includes/Consult', { result: result, cabecalho: cabecalho })
 })
 
-router.post('/contrato', async (req, res) => {
+router.post('/contrato', authMiddleware, async (req, res) => {
     const cabecalho = ['CPF/CNPJ Empregador', 'Nome Empregado', 'CPF Empregado', 'Cargo', 'Arquivo', 'Ações'];
 
     var result = await Contrato.findAll({
@@ -96,7 +97,7 @@ router.post('/contrato', async (req, res) => {
             cargo: { [Op.like]: req.body.cargo + '%' }
         }
     })
-    console.log(result)
+    
     result.map((item, index) => {
         result[index].campo1 = item.cnpj_empregador;
         result[index].campo2 = item.nome_empregado;
@@ -114,7 +115,7 @@ router.post('/contrato', async (req, res) => {
     res.render('includes/Consult', { result: result, cabecalho: cabecalho })
 })
 
-router.post('/fatura', async (req, res) => {
+router.post('/fatura', authMiddleware, async (req, res) => {
     const cabecalho = ['Nº Fatura', 'Data Emissão', 'Data Vencimento', '', 'Arquivo', 'Ações'];
 
     (req.body.data_emissao) ? dataValidaEmissao = new Date(req.body.data_emissao + ' ' + '21:00:00') : dataValidaEmissao = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
@@ -144,7 +145,7 @@ router.post('/fatura', async (req, res) => {
     res.render('includes/Consult', { result: result, cabecalho: cabecalho })
 })
 
-router.post('/nota_fiscal', async (req, res) => {
+router.post('/nota_fiscal', authMiddleware, async (req, res) => {
     const cabecalho = ['Cod Filial', 'Nº Nota', 'Cod Cliente', 'Nº Pedido', 'Arquivo', 'Ações'];
     
     var result = await NotaFiscal.findAll({
