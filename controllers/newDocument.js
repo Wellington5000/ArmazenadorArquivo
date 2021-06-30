@@ -65,7 +65,7 @@ router.post('/alvara', upload.single('diretorio'), authMiddleware, async (req, r
         diretorio: req.file.originalname
     })
 
-    res.redirect('/novo')
+    res.render('includes/FormInsert', {mensagem: "Arquivo inserido com sucesso"})
 })
 
 router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (req, res) => {
@@ -79,7 +79,7 @@ router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (r
         diretorio: req.file.originalname
     })
     
-    res.redirect('/novo')
+    res.render('includes/FormInsert', {mensagem: "Arquivo inserido com sucesso"})
 })
 
 router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req, res) => {
@@ -92,7 +92,7 @@ router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req,
         diretorio: req.file.originalname
     })
 
-    res.redirect('/novo')
+    res.render('includes/FormInsert', {mensagem: "Arquivo inserido com sucesso"})
 })
 
 router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, res) => {
@@ -103,7 +103,7 @@ router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, r
         diretorio: req.file.originalname
     })
 
-    res.redirect('/novo')
+    res.render('includes/FormInsert', {mensagem: "Arquivo inserido com sucesso"})
 })
 
 router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (req, res) => {
@@ -115,7 +115,7 @@ router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (r
         diretorio: req.file.originalname
     })
 
-    res.redirect('/novo')
+    res.render('includes/FormInsert', {mensagem: "Arquivo inserido com sucesso"})
 })
 
 module.exports = router

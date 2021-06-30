@@ -81,3 +81,8 @@ button{
         background-position: 0 100%;
     }
 }
+
+
+#btnModal{
+    background-color: rgb(0, 54, 172);
+}

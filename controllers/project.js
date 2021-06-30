@@ -12,20 +12,19 @@ router.get('/', authMiddleware, async (req, res) => {
 })
 
 router.get('/novo', authMiddleware, (req, res) => {
-    res.render('includes/FormNotaFiscal', { success: req.params.valid })
+    res.render('includes/FormInsert')
 })
 
 router.get('/consultar', authMiddleware, (req, res) => {
-    res.render('includes/Consult', { texto: 'Wellington' })
+    res.render('includes/FormConsult', { texto: 'Wellington' })
 })
 
 
 router.get('/login', (req, res) => {
-    res.render('includes/formLogin')
+    res.render('includes/FormLogin')
 })
 
 //---------------------------------------------------------------------------
-
 function gerateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, { expiresIn: 86400 })
 }
@@ -37,19 +36,20 @@ router.post('/autenticacao', async (req, res) => {
     var result = await Funcionario.findAll({ where: { email: email } })
 
     if (!result[0]) {
-        console.log('Nenhum usuário encontrado')
-        return res.redirect('/login')
+        return res.render('includes/FormLogin', {mensagem: "Usuário ou senha inválidos"})
     }
-
     if (!await bcrypt.compare(senha, result[0].senha)) {
         console.log('Senha incorreta')
-        return res.redirect('/login')
+        return res.render('includes/FormLogin', {mensagem: "Usuário ou senha inválidos"})
     }
-
-    
   //Expiração em 10 dias
-  res.cookie('userId', result.id, { maxAge: 900000000, httpOnly: true })
   res.cookie('token', gerateToken({id: result.id}), { maxAge: 900000000, httpOnly: true })
   res.redirect('/')
+})
+
+
+router.get('/sair', (req, res) => {
+    res.cookie('token', undefined)
+    res.redirect('/login')
 })
 module.exports = router

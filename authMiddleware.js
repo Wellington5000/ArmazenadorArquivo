@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
 
     //Verifica se o token é válido
     jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if (err) { return res.redirect('/login') }
+        if (err) { return res.render('includes/FormLogin', {mensagem: "Faça login novamente para continuar"}) }
         req.userId = decoded.id
         return next()
     })

@@ -24,6 +24,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 const Op = Sequelize.Op
 
+
 router.post('/alvara', authMiddleware, async (req, res) => {
     const cabecalho = ['Nº Alvará', 'CNPJ', 'Data Emissão', 'Data Validade', 'Arquivo', 'Ações'];
     //await Alvara.destroy({ truncate : true, cascade: false })
@@ -53,8 +54,9 @@ router.post('/alvara', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/Consult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, mensagem: "Consulta feita com sucesso" })
 })
+
 
 router.post('/comprovante', authMiddleware, async (req, res) => {
     const cabecalho = ['CPF/CNPJ Beneficiário', 'Nome Pagador', 'CPF/CNPJ Pagador', 'Data Pagamento', 'Arquivo', 'Ações'];
@@ -83,8 +85,9 @@ router.post('/comprovante', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/Consult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
 })
+
 
 router.post('/contrato', authMiddleware, async (req, res) => {
     const cabecalho = ['CPF/CNPJ Empregador', 'Nome Empregado', 'CPF Empregado', 'Cargo', 'Arquivo', 'Ações'];
@@ -112,8 +115,9 @@ router.post('/contrato', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/Consult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
 })
+
 
 router.post('/fatura', authMiddleware, async (req, res) => {
     const cabecalho = ['Nº Fatura', 'Data Emissão', 'Data Vencimento', '', 'Arquivo', 'Ações'];
@@ -142,8 +146,9 @@ router.post('/fatura', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/Consult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
 })
+
 
 router.post('/nota_fiscal', authMiddleware, async (req, res) => {
     const cabecalho = ['Cod Filial', 'Nº Nota', 'Cod Cliente', 'Nº Pedido', 'Arquivo', 'Ações'];
@@ -171,7 +176,7 @@ router.post('/nota_fiscal', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/Consult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
 })
 
 module.exports = router
