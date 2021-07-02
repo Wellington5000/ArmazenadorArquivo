@@ -5,8 +5,13 @@ const Company = require('./company')
 const Branch = Database.define('filial', {
     id: {
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
+    },
+    codigo: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
     },
     razao_social: {
         type: Sequelize.STRING,
@@ -35,4 +40,4 @@ Branch.belongsTo(Company, {
     foreingKey: 'CompanyId'
 })
 
-module.exports = Company
+module.exports = Branch

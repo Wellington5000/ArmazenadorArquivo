@@ -1,15 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const upload = require('../multer')
 const app = express()
 const moment = require('moment')
 const router = express.Router()
-const bcrypt = require('bcrypt')
 const Database = require('../models/database')
 const Empresa = require('../models/company')
 const Funcionario = require('../models/employee')
 const Filial = require('../models/branch')
-const Document = require('../models/document')
 
 const Alvara = require('../models/documents/license')
 const Comprovante = require('../models/documents/payment_voucher')
@@ -26,17 +23,20 @@ const Op = Sequelize.Op
 
 
 router.post('/alvara', authMiddleware, async (req, res) => {
-    const cabecalho = ['Nº Alvará', 'CNPJ', 'Data Emissão', 'Data Validade', 'Arquivo', 'Ações'];
+    var funcionario = await Funcionario.findAll({where: {id: req.cookies.id}})
+    const cabecalho = ['Nº Alvará', 'CNPJ', 'Data Emissão', 'Data Validade', 'Ações'];
+    
     //await Alvara.destroy({ truncate : true, cascade: false })
     (req.body.data_emissao) ? dataValidaEmissao = req.body.data_emissao : dataValidaEmissao = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
     (req.body.data_validade) ? dataValidaValidade = req.body.data_validade : dataValidaValidade = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
-
+    
     var result = await Alvara.findAll({
         where: {
             num_alvara: { [Op.like]: req.body.num_alvara + '%' },
             cnpj: { [Op.like]: req.body.cnpj + '%' },
             data_emissao: dataValidaEmissao,
-            data_validade: dataValidaValidade
+            data_validade: dataValidaValidade,
+            empresaId: funcionario[0].empresaId
         }
     })
     
@@ -54,12 +54,13 @@ router.post('/alvara', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, mensagem: "Consulta feita com sucesso" })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho})
 })
 
-
 router.post('/comprovante', authMiddleware, async (req, res) => {
-    const cabecalho = ['CPF/CNPJ Beneficiário', 'Nome Pagador', 'CPF/CNPJ Pagador', 'Data Pagamento', 'Arquivo', 'Ações'];
+    var funcionario = await Funcionario.findAll({where: {id: req.cookies.id}})
+
+    const cabecalho = ['CPF/CNPJ Beneficiário', 'Nome Pagador', 'CPF/CNPJ Pagador', 'Data Pagamento', 'Ações'];
     (req.body.data_pagamento) ? dataValidaPagamento = req.body.data_pagamento : dataValidaPagamento = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
 
     var result = await Comprovante.findAll({
@@ -67,7 +68,8 @@ router.post('/comprovante', authMiddleware, async (req, res) => {
             cpf_cnpj_beneficiario: { [Op.like]: req.body.cpf_cnpj_beneficiario + '%' },
             nome_pagador: { [Op.like]: req.body.nome_pagador + '%' },
             cpf_cnpj_pagador: { [Op.like]: req.body.cpf_cnpj_pagador + '%' },
-            data_pagamento: dataValidaPagamento
+            data_pagamento: dataValidaPagamento,
+            empresaId: funcionario[0].empresaId
         }
     })
 
@@ -90,14 +92,17 @@ router.post('/comprovante', authMiddleware, async (req, res) => {
 
 
 router.post('/contrato', authMiddleware, async (req, res) => {
-    const cabecalho = ['CPF/CNPJ Empregador', 'Nome Empregado', 'CPF Empregado', 'Cargo', 'Arquivo', 'Ações'];
+    var funcionario = await Funcionario.findAll({where: {id: req.cookies.id}})
+
+    const cabecalho = ['CPF/CNPJ Empregador', 'Nome Empregado', 'CPF Empregado', 'Cargo', 'Ações'];
 
     var result = await Contrato.findAll({
         where: {
             cnpj_empregador: { [Op.like]: req.body.cnpj_empregador + '%' },
             nome_empregado: { [Op.like]: req.body.nome_empregado + '%' },
             cpf_empregado: { [Op.like]: req.body.cpf_empregado + '%' },
-            cargo: { [Op.like]: req.body.cargo + '%' }
+            cargo: { [Op.like]: req.body.cargo + '%' },
+            empresaId: funcionario[0].empresaId
         }
     })
     
@@ -120,7 +125,9 @@ router.post('/contrato', authMiddleware, async (req, res) => {
 
 
 router.post('/fatura', authMiddleware, async (req, res) => {
-    const cabecalho = ['Nº Fatura', 'Data Emissão', 'Data Vencimento', '', 'Arquivo', 'Ações'];
+    var funcionario = await Funcionario.findAll({where: {id: req.cookies.id}})
+
+    const cabecalho = ['Nº Fatura', 'Data Emissão', 'Data Vencimento', '', 'Ações'];
 
     (req.body.data_emissao) ? dataValidaEmissao = new Date(req.body.data_emissao + ' ' + '21:00:00') : dataValidaEmissao = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
     (req.body.data_vencimento) ? dataValidaVencimento = new Date(req.body.data_vencimento + ' ' + '21:00:00') : dataValidaVencimento = { [Op.between]: [new Date("02 01 1999"), new Date("02 01 2050")] };
@@ -129,7 +136,8 @@ router.post('/fatura', authMiddleware, async (req, res) => {
         where: {
             num_fatura: { [Op.like]: req.body.num_fatura + '%' },
             data_emissao: dataValidaEmissao,
-            data_vencimento: dataValidaVencimento
+            data_vencimento: dataValidaVencimento,
+            empresaId: funcionario[0].empresaId
         }
     })
 
@@ -151,14 +159,17 @@ router.post('/fatura', authMiddleware, async (req, res) => {
 
 
 router.post('/nota_fiscal', authMiddleware, async (req, res) => {
-    const cabecalho = ['Cod Filial', 'Nº Nota', 'Cod Cliente', 'Nº Pedido', 'Arquivo', 'Ações'];
+    var funcionario = await Funcionario.findAll({where: {id: req.cookies.id}})
+
+    const cabecalho = ['Cod Filial', 'Nº Nota', 'Cod Cliente', 'Nº Pedido', 'Ações'];
     
     var result = await NotaFiscal.findAll({
         where: {
             cod_filial: { [Op.like]: req.body.cod_filial + '%' },
             num_nota: { [Op.like]: req.body.num_nota + '%' },
             cod_cliente: { [Op.like]: req.body.cod_cliente + '%' },
-            num_pedido: { [Op.like]: req.body.num_pedido + '%' }
+            num_pedido: { [Op.like]: req.body.num_pedido + '%' },
+            empresaId: funcionario[0].empresaId
         }
     })
 

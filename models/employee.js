@@ -1,6 +1,7 @@
 const Database = require('./database')
 const Sequelize = require('sequelize')
-const Company = require('./company')
+const Filial = require('./branch')
+const Empresa = require('./company')
 
 const Employee = Database.define('Funcionario', {
     id: {
@@ -23,6 +24,7 @@ const Employee = Database.define('Funcionario', {
     email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true
     },
     senha: {
         type: Sequelize.STRING,
@@ -30,11 +32,16 @@ const Employee = Database.define('Funcionario', {
     }
 })
 
-Employee.belongsTo(Company, {
-    constraint: true, 
-    foreignKey: 'companyId'
-});
+Employee.belongsTo(Filial, {
+    constraint: true,
+    foreignKey: 'filialId',
+    allowNull: false
+})
 
-//Employee.sync()
+Employee.belongsTo(Empresa, {
+    constraint: true,
+    foreignKey: 'empresaId',
+    allowNull: false
+})
 
 module.exports = Employee

@@ -1,6 +1,7 @@
 const Database = require('../database')
 const Sequelize = require('sequelize')
 const Funcionario = require('../employee')
+const Empresa = require('../company')
 
 const Note = Database.define('nota_fiscal', {
     id: {
@@ -25,6 +26,12 @@ const Note = Database.define('nota_fiscal', {
 Note.belongsTo(Funcionario, {
     constraint: true,
     foreignKey: 'funcionarioId'
+})
+
+Note.belongsTo(Empresa, {
+    allowNull: false,
+    constraint: true,
+    foreignKey: 'empresaId'
 })
 
 module.exports = Note

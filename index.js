@@ -9,7 +9,7 @@ const newDocument = require('./controllers/newDocument')
 const Consult = require('./controllers/consult')
 const moment = require('moment')
 const cookieParser = require('cookie-parser')
-
+const Database = require('./models/database')
 //Configura a utilização de cookies
 app.use(cookieParser())
 

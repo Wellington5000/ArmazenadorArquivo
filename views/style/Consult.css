@@ -45,3 +45,7 @@
   .table-image td, th {
       vertical-align: middle;
   }
+
+  .actions{
+      text-align: center;
+  }
