@@ -10,7 +10,10 @@ const Invoice = Database.define('fatura', {
         allowNull: false,
         primaryKey: true
     },
-    num_fatura: Sequelize.INTEGER,
+    num_fatura: {
+        type: Sequelize.INTEGER,
+        unique: true
+    },
     data_emissao: Sequelize.DATE,
     data_vencimento: Sequelize.DATE,
     diretorio: Sequelize.STRING

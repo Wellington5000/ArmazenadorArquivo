@@ -7,7 +7,8 @@ const sequelize = new Sequelize('kboqzhtqvsidxpv9', 'z677qg4io4836uwg', 'lge4ly0
     useUTC: false     // para considerar a hora da consulta como a hora                  // local, logo nao soma +02:00 horas
    },
   dialect: 'mysql',
-  timezone: '-03:00'
+  timezone: '-03:00',
+  omitNull: true
 })
 
 module.exports = sequelize

@@ -18,16 +18,9 @@
             <div class="   col-md-6 offset-md-3">
                 <label> Cod. Filial</label>
                 <select name="cod_filial" class="form-select" aria-label="Default select example">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="98">98</option>
-                    <option value="99">99</option>
+                    {{#each filiais}}
+                        <option value={{dataValues.codigo}}>{{dataValues.razao_social}}</option>
+                    {{/each}}
                 </select>
             </div>
         </div>

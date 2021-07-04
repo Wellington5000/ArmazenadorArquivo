@@ -9,10 +9,7 @@ const Branch = Database.define('filial', {
         allowNull: false,
         primaryKey: true
     },
-    codigo: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-    },
+    codigo: Sequelize.INTEGER,
     razao_social: {
         type: Sequelize.STRING,
         allowNull: false
@@ -37,7 +34,7 @@ const Branch = Database.define('filial', {
 
 Branch.belongsTo(Company, {
     constraint: true,
-    foreingKey: 'CompanyId'
+    foreingKey: 'companyId'
 })
 
 module.exports = Branch

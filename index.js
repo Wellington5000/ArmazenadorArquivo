@@ -13,6 +13,9 @@ const Database = require('./models/database')
 //Configura a utilização de cookies
 app.use(cookieParser())
 
+//Declaração de variável global com o nome da empresa
+global.nome_empresa = "Armazenador de Arquivos"
+
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))

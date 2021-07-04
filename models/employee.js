@@ -3,6 +3,8 @@ const Sequelize = require('sequelize')
 const Filial = require('./branch')
 const Empresa = require('./company')
 
+//Para apagar mesmo com referência de chave estrangeira
+
 const Employee = Database.define('Funcionario', {
     id: {
         type: Sequelize.INTEGER,

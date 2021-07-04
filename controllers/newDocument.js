@@ -27,7 +27,7 @@ router.get('/cadastrar_empresa', authMiddleware, async (req, res) => {
         await Empresa.create({
             razao_social: 'Ferro Norte',
             cnpj: '42.315.628/0801.73',
-            endereco: 'Bairro Vamos Ver o Sol, 4656 - Longe',
+            endereco: 'Centro Sul',
             cidade: 'Teresina',
             estado: 'Piauí'
         })
@@ -38,17 +38,17 @@ router.get('/cadastrar_empresa', authMiddleware, async (req, res) => {
     }
 })
 
-router.get('/cadastrar_funcionario', async (req, res) => {
+router.get('/cadastrar_funcionario', authMiddleware, async (req, res) => {
     try {
-        const hash = await bcrypt.hash('654321', 10)
+        const hash = await bcrypt.hash('123456', 10)
         await Funcionario.create({
-            nome: 'Cleiton Neres',
+            nome: 'Wallyson Italo',
             cargo: 'Analista',
             data_nascimento: '1999/01/31',
-            email: 'cleiton@gmail.com',
+            email: 'wallyson@gmail.com',
             senha: hash,
             filialId: 1,
-            empresaId: 2
+            empresaId: 102
         })
 
         res.render('includes/index', {mensagem: "Funcionário cadastrado"})
@@ -57,16 +57,17 @@ router.get('/cadastrar_funcionario', async (req, res) => {
     }
 })
 
-router.get('/cadastrar_filial', async (req, res) => {
+router.get('/cadastrar_filial', authMiddleware, async (req, res) => {
     try {
         await Filial.create({
-            codigo: 1,
+            id: 5,
+            codigo: 5,
             razao_social: 'Ferro Norte Filial',
             cnpj: '12.345.678/0008.43',
             endereco: 'R. Generoso França, 866 - Pedras',
             cidade: 'Teresina',
             estado: 'Piauí',
-            companyId: 2
+            EmpresaId: 102
         })
 
         res.render('includes/index', { mensagem: 'Filial cadastrada' })
@@ -92,9 +93,9 @@ router.post('/alvara', upload.single('diretorio'), authMiddleware, async (req, r
 
         console.log(await Alvara.findAll())
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso" })
+        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo" })
+        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -114,9 +115,9 @@ router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso" })
+        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo" })
+        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -135,9 +136,9 @@ router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req,
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso" })
+        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo" })
+        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -154,9 +155,9 @@ router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso" })
+        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo" })
+        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -174,9 +175,9 @@ router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso" })
+        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo" })
+        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 

@@ -16,6 +16,7 @@ const Note = Database.define('nota_fiscal', {
     },
     num_nota: {
         type: Sequelize.INTEGER,
+        unique: true,
         allowNull: false,
     },
     cod_cliente: Sequelize.INTEGER,

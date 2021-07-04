@@ -4,6 +4,8 @@
     margin: 8% auto;
     box-shadow: 0 5px 5px 0 rgb(0, 36, 114), 0 0 0 0.1px rgb(14, 0, 90);
     border-radius: 10px;
+    background-color: rgb(10, 17, 104);
+    color: white;
 }
 
 .formLogin .tems{
@@ -22,4 +24,6 @@
 #btnLogin{
     margin-top: 8%;
     width: 100%;
+    background-color: white;
+    color: black;
 }

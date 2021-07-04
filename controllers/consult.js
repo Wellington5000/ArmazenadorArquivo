@@ -15,6 +15,7 @@ const Fatura = require('../models/documents/invoice')
 const NotaFiscal = require('../models/documents/note')
 const Sequelize = require('sequelize')
 const authMiddleware = require('../authMiddleware')
+const Invoice = require('../models/documents/invoice')
 
 //Body-Parser permite a obtenção dos dados do formulário
 app.use(express.json())
@@ -54,7 +55,7 @@ router.post('/alvara', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho})
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, nome_empresa: nome_empresa})
 })
 
 router.post('/comprovante', authMiddleware, async (req, res) => {
@@ -87,7 +88,7 @@ router.post('/comprovante', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, nome_empresa: nome_empresa})
 })
 
 
@@ -120,7 +121,7 @@ router.post('/contrato', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, nome_empresa: nome_empresa})
 })
 
 
@@ -154,7 +155,7 @@ router.post('/fatura', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, nome_empresa: nome_empresa})
 })
 
 
@@ -187,7 +188,7 @@ router.post('/nota_fiscal', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho })
+    res.render('includes/FormConsult', { result: result, cabecalho: cabecalho, nome_empresa: nome_empresa})
 })
 
 module.exports = router
