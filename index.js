@@ -38,4 +38,4 @@ app.use('/', project)
 app.use('/novo', newDocument)
 app.use('/consultar', Consult)
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
