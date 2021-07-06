@@ -29,9 +29,11 @@
 <body>
     <nav class="navbar navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">{{nome_empresa}}</a>
+            <a class="navbar-brand" href="/"><img src="/0c9ff07d1c914e1d9aa43b9dc428f8f0.png" alt=""></a>
             {{#if notLogon}}
-            
+                <a class="navbar-brand" href="/novo" id="btnNew">Contato</a>
+                <a class="navbar-brand" href="/consultar">Sobre</a>
+                <a class="navbar-brand" href="/sair">Área do administrador</a>
             {{else}}
                 <a class="navbar-brand" href="/novo" id="btnNew">Novo</a>
                 <a class="navbar-brand" href="/consultar">Consultar</a>

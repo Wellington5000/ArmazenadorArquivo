@@ -4,7 +4,7 @@
     margin: 8% auto;
     box-shadow: 0 5px 5px 0 rgb(0, 36, 114), 0 0 0 0.1px rgb(14, 0, 90);
     border-radius: 10px;
-    background-color: rgb(10, 17, 104);
+    background: linear-gradient(-60deg,#5590e7, rgb(128, 182, 245), #5590e7, rgb(248, 248, 248));
     color: white;
 }
 
@@ -26,4 +26,5 @@
     width: 100%;
     background-color: white;
     color: black;
+    box-shadow: 0 5px 5px 0 rgb(53, 51, 51), 0 0 0 0.1px rgb(247, 246, 255);
 }
