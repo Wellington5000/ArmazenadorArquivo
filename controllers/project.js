@@ -31,7 +31,7 @@ router.get('/consultar', authMiddleware, (req, res) => {
 
 
 router.get('/login', (req, res) => {
-    res.render('includes/FormLogin', { notLogon: true, nome_empresa: "Armazenador de Arquivos" })
+    res.render('includes/TelaInicial', { notLogon: true, nome_empresa: "Armazenador de Arquivos" })
 })
 
 //---------------------------------------------------------------------------

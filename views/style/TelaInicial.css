@@ -1,0 +1,91 @@
+body{
+    background-color: #F5F5F5;
+}
+
+.imgLogo{
+    position: relative;
+    margin-top: 1%;
+    margin-left: 7.8%;
+    width: 40px;
+    height: 40px;
+}
+
+.newLogo{
+    margin-top: -0.7%;
+    margin-left: 10%;
+    color: #FF0000;
+}
+
+.newLogo span{
+    color: #ff4e22;
+}
+
+#cabecalho{
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+}
+
+.telaInicial{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.telaInicial form{
+    margin: auto;
+}
+
+.telaInicial #comboFile{
+    height: 35px;
+    border-radius: 5px;
+    width: 170px;
+    color: #776F6F;
+}
+
+.telaInicial input{
+    margin-left: 35px;
+    border-radius: 5px;
+    height: 35px;
+    border: solid 1px;
+    background-color: #FEFEFC;
+    padding: 0 0 3px 15px;
+    border: solid 1px rgb(143, 141, 141);
+}
+
+.telaInicial #btnNewConsult{
+    width: 170px;
+    height: 37px;
+    background-color: #FC4749;
+    color: #FEFEFC;
+    padding: 0 0 0 0;
+    border: solid 1px rgb(143, 141, 141);
+}
+
+table {
+    border-radius: 10px;
+    text-align: center;
+    font-family: Montserrat, Arial, sans-serif;
+    background:#fafafa ;
+    margin: 5% auto;
+    width: 80%;
+    color: #776F6F;
+  }
+  
+  tr:nth-child(even) {
+    background:#FC4749;
+    color: white;
+  }
+
+  .iconAdd{
+      width: 60px;
+      height: 60px;
+      margin-top: 10%;
+      margin-left: 90%;
+      box-shadow: 0 3px 3px 0 rgb(5, 5, 5), 0 0 0 0.1px rgb(4, 4, 5);
+      border-radius: 50%;
+  }
+
+::-webkit-input-placeholder{
+    color: #776F6F;   
+}

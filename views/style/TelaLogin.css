@@ -1,0 +1,65 @@
+body{
+    background-color: #FC4749;
+}
+
+.formNewLogin{
+    width: 400px;
+    height: 300px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.formNewLogin img{
+    margin-top: 0px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+
+}
+
+.formNewLogin h3{
+    font-weight: lighter;
+    color: #FEFEFC;
+}
+
+.formNewLogin span{
+    color: #CECECC;
+}
+
+.formNewLogin input{
+    display: block;
+    margin: 10% auto;
+    color: #FEFEFC;
+    background-color: #FC4749;
+    border: solid 2px white;
+    width: 300px;
+    height: 45px;
+    border-radius: 20px;
+    padding: 0 0 3px 15px;
+}
+
+#btnNewLogin{
+    background-color: #FEFEFC;
+    color: #FC4749;
+    padding: 0 0 0 0;
+    margin-bottom: 10px;
+}
+
+.formNewLogin a{
+    color: #FEFEFC;
+}
+
+::-webkit-input-placeholder{
+    color: #DBDBDB;   
+}
+
+.redesSociais{
+    margin-top: 17%;
+    margin-left: 75%;
+}
+
+.redesSociais a{
+    text-decoration: none;
+    color: #FEFEFC;
+    margin-left: 40px;
+}
