@@ -8,21 +8,54 @@
 <h5 id="cabecalho">Informações do Documento</h5>
 
 <div class="telaInicial">
-    <form action="">
-        <select name="" id="comboFile">
-            <option value="1">Tipo de Arquivo</option>
-            <option value="2">Alvará</option>
-            <option value="3">Comprovante</option>
+    <div class="formConsult">
+        <select name="" id="comboFile" onchange="selectedFilterType()">
+            <option value="1">Alvará</option>
+            <option value="2">Comprovante</option>
+            <option value="3">Contrato</option>
             <option value="4">Fatura</option>
             <option value="5">Nota Fiscal</option>
         </select>
 
-        <input type="text" placeholder="Número Alvará">
-        <input type="text" placeholder="CNPJ">
-        <input type="text" placeholder="Data de Emissão">
-        <input type="text" placeholder="Data de Vencimento">
-        <input type="submit" id="btnNewConsult" value="Consultar">
-    </form>
+        <form action="/consultar/alvara" id="FormFilterAlvara" method="POST">
+            <input type="number" name="num_alvara" placeholder="Número Alvará">
+            <input type="number" name="cnpj" placeholder="CNPJ">
+            <input type="date" name="data_emissao" placeholder="Data de Emissão">
+            <input type="date" name="data_vencimento" placeholder="Data de Vencimento">
+            <input type="submit" id="btnNewConsult" value="Consultar">
+        </form>
+
+        <form action="/consultar/comprovante" hidden id="FormFilterComprovante" method="POST">
+            <input type="number" name="cpf_cnpj_beneficiario" placeholder="CPF/CNPJ Pagador">
+            <input type="text" name="nome_pagador" placeholder="Nome do Pagador">
+            <input type="number" name="cpf_cnpj_pagador" placeholder="CPF/CNPJ Pagador">
+            <input type="date" name="data_pagamento" placeholder="Data de Pagamento">
+            <input type="submit" id="btnNewConsult" value="Consultar">
+        </form>
+
+        <form action="/consultar/contrato" hidden id="FormFilterContrato" method="POST">
+            <input type="number" name="cnpj_empregador" placeholder="CNPJ do Empregador">
+            <input type="text" name="nome_empregado" placeholder="Nome do Empregado">
+            <input type="number" name="cpf_empregado" placeholder="CPF do Empregado">
+            <input type="text" name="cargo" placeholder="Cargo">
+            <input type="submit" id="btnNewConsult" value="Consultar">
+        </form>
+
+        <form action="/consultar/fatura" hidden id="FormFilterFatura" method="POST">
+            <input type="number" name="num_fatura" placeholder="Número da Fatura">
+            <input type="date" name="data_emissao" placeholder="Data de Emissão">
+            <input type="date" name="data_vencimento" placeholder="Data de Vencimento">
+            <input type="submit" id="btnNewConsult" value="Consultar">
+        </form>
+
+        <form action="/consultar/nota_fiscal" hidden id="FormFilterNotaFiscal" method="POST">
+            <input type="number" name="cod_filial" placeholder="Código da Filial">
+            <input type="number" name="num_nota" placeholder="Número da Nota">
+            <input type="number" name="cod_cliente" placeholder="Código do Cliente">
+            <input type="number" name="num_pedido" placeholder="Número do Pedido">
+            <input type="submit" id="btnNewConsult" value="Consultar">
+        </form>
+    </div>
 
 
 
@@ -37,42 +70,45 @@
             </tr>
         </thead>
 
-        <tr class="rowTable">
-            <td>1547855</td>
-            <td>2578541258</td>
-            <td>31/01/1999</td>
-            <td>01/01/2025</td>
-            <td>Visualizar</td>
-        </tr>
-        <tr>
-            <td>1547855</td>
-            <td>2578541258</td>
-            <td>31/01/1999</td>
-            <td>01/01/2025</td>
-            <td>Visualizar</td>
-        </tr>
-        <tr>
-            <td>1547855</td>
-            <td>2578541258</td>
-            <td>31/01/1999</td>
-            <td>01/01/2025</td>
-            <td>Visualizar</td>
-        </tr>
-        <tr>
-            <td>1547855</td>
-            <td>2578541258</td>
-            <td>31/01/1999</td>
-            <td>01/01/2025</td>
-            <td>Visualizar</td>
-        </tr>
-
+        <tbody>
+            {{#each result}}
+            <tr>
+                <td scope="row">{{campo1}}</td>
+                {{#if data2}}
+                <td>{{#formatDate campo2}}{{/formatDate}}</td>
+                {{else}}
+                <td>{{campo2}}</td>
+                {{/if}}
+                {{#if data3}}
+                <td>{{#formatDate campo3}}{{/formatDate}}</td>
+                {{else}}
+                <td>{{campo3}}</td>
+                {{/if}}
+                {{#if data4}}
+                <td>{{#formatDate campo4}}{{/formatDate}}</td>
+                {{else}}
+                <td>{{campo4}}</td>
+                {{/if}}
+                <td><a href="/{{campo5}}">Visualizar</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
     </table>
 </div>
 
 <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><img class="iconAdd" src="/iconAdd.png"
         alt=""></a>
 
-<!-- Modal -->
+
+
+
+
+
+
+
+
+
+<!-- ________________________________________________________________Modal Novo Arquivo______________________________________________________________________________________________________ -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -241,3 +277,4 @@
 
 
 <script src="/newFile.js"></script>
+<script src="/Consult.js"></script>

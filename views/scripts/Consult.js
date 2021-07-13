@@ -4,8 +4,8 @@ var FormFilterContrato = document.getElementById('FormFilterContrato')
 var FormFilterFatura = document.getElementById('FormFilterFatura')
 var FormFilterNotaFiscal = document.getElementById('FormFilterNotaFiscal')
 
-function selectedType() {
-    var select = document.getElementById('formSelect')
+function selectedFilterType() {
+    var select = document.getElementById('comboFile')
     var option = select.options[select.selectedIndex].value
 
     switch (option) {

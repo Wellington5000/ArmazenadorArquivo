@@ -33,18 +33,24 @@ body{
     width: 80%;
 }
 
+.formConsult{
+    display: flex;
+}
+
 .telaInicial form{
     margin: auto;
     width: 100%;
 }
 
 .telaInicial #comboFile{
-    margin-right: 20.5px;
+    margin-top: 3px;
     height: 35px;
     border-radius: 5px;
-    width: 170px;
+    width: 195px;
     color: #776F6F;
-    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-bottom: 2px;
+    margin-right: 25px;
 }
 
 .telaInicial input{
@@ -101,4 +107,13 @@ table {
 
 ::-webkit-input-placeholder{
     color: #776F6F;   
+}
+
+tr a{
+    text-decoration: none;
+    color: #776F6F;
+}
+
+tr:nth-child(even) a{
+    color: rgb(255, 255, 255);
 }

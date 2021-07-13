@@ -166,10 +166,10 @@ router.post('/nota_fiscal', authMiddleware, async (req, res) => {
     
     var result = await NotaFiscal.findAll({
         where: {
-            cod_filial: { [Op.like]: req.body.cod_filial + '%' },
-            num_nota: { [Op.like]: req.body.num_nota + '%' },
+            cod_filial: { [Op.like]:  req.body.cod_filial + '%' },
+            num_nota: { [Op.like]:    req.body.num_nota + '%' },
             cod_cliente: { [Op.like]: req.body.cod_cliente + '%' },
-            num_pedido: { [Op.like]: req.body.num_pedido + '%' },
+            num_pedido: { [Op.like]:  req.body.num_pedido + '%' },
             empresaId: funcionario[0].empresaId
         }
     })
