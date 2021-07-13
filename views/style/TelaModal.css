@@ -1,0 +1,27 @@
+#exampleModalLabel{
+    font-weight: 400;
+}
+
+#formSelect{
+    height: 35px;
+    width: 100%;
+    border: solid 1px rgb(216, 216, 216);
+    border-radius: 5px;
+    color: #6d6d6d;
+}
+
+input[type="date"], input[type="file"]{
+    color: #6d6d6d;
+}
+
+#btnSalvar{
+    width: 20%;
+    background-color: #FC4749;
+    color: #FEFEFC;
+}
+
+#btnFechar{
+    width: 20%;
+    background:#5f5959;
+    color: rgb(255, 255, 255);
+}

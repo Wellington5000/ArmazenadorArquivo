@@ -93,9 +93,9 @@ router.post('/alvara', upload.single('diretorio'), authMiddleware, async (req, r
 
         console.log(await Alvara.findAll())
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -105,7 +105,6 @@ router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (r
     //await Database.sync();
     try {
         await Comprovante.create({
-            nome_beneficiario: req.body.nome_beneficiario,
             cpf_cnpj_beneficiario: req.body.cpf_cnpj_beneficiario,
             nome_pagador: req.body.nome_pagador,
             cpf_cnpj_pagador: req.body.cpf_cnpj_pagador,
@@ -115,9 +114,9 @@ router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -136,9 +135,9 @@ router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req,
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -155,9 +154,9 @@ router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 
@@ -175,9 +174,9 @@ router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/FormInsert', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais })
     } catch (error) {
-        res.render('includes/FormInsert', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
     }
 })
 

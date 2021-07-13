@@ -21,6 +21,7 @@ body{
 }
 
 #cabecalho{
+    font-weight: 400;
     margin-top: 3%;
     margin-left: 10%;
     margin-bottom: 3%;
@@ -29,22 +30,25 @@ body{
 .telaInicial{
     text-align: center;
     margin: auto;
-    width: 100%;
+    width: 80%;
 }
 
 .telaInicial form{
     margin: auto;
+    width: 100%;
 }
 
 .telaInicial #comboFile{
+    margin-right: 20.5px;
     height: 35px;
     border-radius: 5px;
     width: 170px;
     color: #776F6F;
+    padding-bottom: 3px;
 }
 
 .telaInicial input{
-    margin-left: 35px;
+    margin-right: 30px;
     border-radius: 5px;
     height: 35px;
     border: solid 1px;
@@ -55,7 +59,7 @@ body{
 
 .telaInicial #btnNewConsult{
     width: 170px;
-    height: 37px;
+    height: 35px;
     background-color: #FC4749;
     color: #FEFEFC;
     padding: 0 0 0 0;
@@ -68,19 +72,28 @@ table {
     font-family: Montserrat, Arial, sans-serif;
     background:#fafafa ;
     margin: 5% auto;
-    width: 80%;
+    width: 100%;
     color: #776F6F;
+    border-collapse: collapse;
+  }
+
+  tr{
+    border-collapse: collapse;
+    border-bottom: 10px solid transparent;
+    padding: 10px;
   }
   
   tr:nth-child(even) {
-    background:#FC4749;
-    color: white;
+    padding: 20px;
+    background:#5f5959;
+    color: rgb(255, 255, 255);
+    border-collapse: collapse;
   }
 
   .iconAdd{
-      width: 60px;
-      height: 60px;
-      margin-top: 10%;
+      width: 50px;
+      height: 50px;
+      margin-top: 8%;
       margin-left: 90%;
       box-shadow: 0 3px 3px 0 rgb(5, 5, 5), 0 0 0 0.1px rgb(4, 4, 5);
       border-radius: 50%;

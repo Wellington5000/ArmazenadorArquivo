@@ -15,23 +15,23 @@ router.get('/', authMiddleware, async (req, res) => {
         global.filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
         nome_empresa = empresa[0].razao_social
         
-        res.render('includes/index', { nome_empresa: nome_empresa})
+        res.render('includes/TelaInicial', { nome_empresa: nome_empresa})
     } catch (error) {
-        res.render('includes/FormLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true, nome_empresa: nome_empresa })
+        res.render('includes/TelaLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true, nome_empresa: nome_empresa })
     }
 })
 
 router.get('/novo', authMiddleware, (req, res) => {
-    res.render('includes/FormInsert', { nome_empresa: nome_empresa, filiais: filiais })
+    res.render('includes/TelaInicial', { nome_empresa: nome_empresa, filiais: filiais })
 })
 
 router.get('/consultar', authMiddleware, (req, res) => {
-    res.render('includes/FormConsult', { texto: 'Wellington', nome_empresa: nome_empresa })
+    res.render('includes/TelaInicial', { texto: 'Wellington', nome_empresa: nome_empresa })
 })
 
 
 router.get('/login', (req, res) => {
-    res.render('includes/TelaInicial', { notLogon: true, nome_empresa: "Armazenador de Arquivos" })
+    res.render('includes/TelaLogin', { notLogon: true, nome_empresa: "Armazenador de Arquivos" })
 })
 
 //---------------------------------------------------------------------------
@@ -46,11 +46,11 @@ router.post('/autenticacao', async (req, res) => {
     var result = await Funcionario.findAll({ where: { email: email } })
 
     if (!result[0]) {
-        return res.render('includes/FormLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
+        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
     }
     if (!await bcrypt.compare(senha, result[0].senha)) {
         console.log('Senha incorreta')
-        return res.render('includes/FormLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
+        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
     }
 
     //Expiração em 10 dias

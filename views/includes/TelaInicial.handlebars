@@ -1,6 +1,11 @@
+<head>
+    <link rel="stylesheet" href="/TelaInicial.css">
+    <link rel="stylesheet" href="/TelaModal.css">
+</head>
+
 <img class="imgLogo" src="/iconFile.png" alt="">
 <h4 class="newLogo">File <span>Storage</span></h4>
-<h6 id="cabecalho">Informações do Documento</h6>
+<h5 id="cabecalho">Informações do Documento</h5>
 
 <div class="telaInicial">
     <form action="">
@@ -31,37 +36,208 @@
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>1547855</td>
-                <td>2578541258</td>
-                <td>31/01/1999</td>
-                <td>01/01/2025</td>
-                <td>Visualizar</td>
-            </tr>
-            <tr>
-                <td>1547855</td>
-                <td>2578541258</td>
-                <td>31/01/1999</td>
-                <td>01/01/2025</td>
-                <td>Visualizar</td>
-            </tr>
-             <tr>
-                <td>1547855</td>
-                <td>2578541258</td>
-                <td>31/01/1999</td>
-                <td>01/01/2025</td>
-                <td>Visualizar</td>
-            </tr>
-            <tr>
-                <td>1547855</td>
-                <td>2578541258</td>
-                <td>31/01/1999</td>
-                <td>01/01/2025</td>
-                <td>Visualizar</td>
-            </tr>
-        </tbody>
+
+        <tr class="rowTable">
+            <td>1547855</td>
+            <td>2578541258</td>
+            <td>31/01/1999</td>
+            <td>01/01/2025</td>
+            <td>Visualizar</td>
+        </tr>
+        <tr>
+            <td>1547855</td>
+            <td>2578541258</td>
+            <td>31/01/1999</td>
+            <td>01/01/2025</td>
+            <td>Visualizar</td>
+        </tr>
+        <tr>
+            <td>1547855</td>
+            <td>2578541258</td>
+            <td>31/01/1999</td>
+            <td>01/01/2025</td>
+            <td>Visualizar</td>
+        </tr>
+        <tr>
+            <td>1547855</td>
+            <td>2578541258</td>
+            <td>31/01/1999</td>
+            <td>01/01/2025</td>
+            <td>Visualizar</td>
+        </tr>
+
     </table>
 </div>
 
-<a href="#"><img class="iconAdd" src="/iconAdd.png" alt=""></a>
+<a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><img class="iconAdd" src="/iconAdd.png"
+        alt=""></a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Documento</h5>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-10 offset-md-1">
+                    <select name="" id="formSelect" onchange="selectedType()">
+                        <option value="1">Alvará</option>
+                        <option value="2">Comprovante</option>
+                        <option value="3">Contrato</option>
+                        <option value="4">Fatura</option>
+                        <option value="5">Nota Fiscal</option>
+                        <option value="6">Outros Arquivos</option>
+                    </select>
+                </div>
+                <br>
+
+                <form action="" method="post" id="FormAlvara">
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="num_alvara" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cnpj" class="form-control" placeholder="CNPJ">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_emissao" class="form-control" placeholder="Data de Emissão">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_validade" class="form-control" placeholder="Data de Validade">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+                </form>
+
+
+                <form action="" method="post" id="FormComprovante" hidden>
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cpf_cnpj_beneficiario" class="form-control"
+                            placeholder="CPF/CNPJ Beneficiário">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="text" name="nome_pagador" class="form-control" placeholder="Nome do Pagador">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cpf_cnpf_pagador" class="form-control"
+                            placeholder="CPF/CNPJ do Pagador">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_pagamento" class="form-control" placeholder="Data de Pagamento">
+                    </div>
+                    <br>
+                </form>
+
+
+                <form action="" method="post" id="FormContrato" hidden>
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cnpj_empregador" class="form-control" placeholder="CNPJ Empregador">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="text" name="nome_empregado" class="form-control" placeholder="Nome do Empregado">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="text" name="cargo" class="form-control" placeholder="Cargo">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_pagamento" class="form-control" placeholder="Data de Pagamento">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+                </form>
+
+
+
+                <form action="" method="post" id="FormFatura" hidden>
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="num_fatura" class="form-control" placeholder="Número da Fatura">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_emissao" class="form-control" placeholder="Data de Emissão">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="date" name="data_vencimento" class="form-control" placeholder="Data de Vencimento">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+                </form>
+
+
+
+                <form action="" method="post" id="FormNotaFiscal" hidden>
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cod_filial" class="form-control" placeholder="Filial">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="num_nota" class="form-control" placeholder="Número da Nota">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cod_cliente" class="form-control" placeholder="Código do Cliente">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="num_pedido" class="form-control" placeholder="Número do Pedido">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnFechar" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/newFile.js"></script>
