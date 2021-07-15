@@ -93,9 +93,9 @@ router.post('/alvara', upload.single('diretorio'), authMiddleware, async (req, r
 
         console.log(await Alvara.findAll())
 
-        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", filiais: filiais  })
     } catch (error) {
-        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo" + error, filiais: filiais  })
     }
 })
 
@@ -114,9 +114,9 @@ router.post('/comprovante', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", filiais: filiais  })
     } catch (error) {
-        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", filiais: filiais  })
     }
 })
 
@@ -135,9 +135,9 @@ router.post('/contrato', upload.single('diretorio'), authMiddleware, async (req,
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", filiais: filiais  })
     } catch (error) {
-        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", filiais: filiais  })
     }
 })
 
@@ -154,9 +154,9 @@ router.post('/fatura', upload.single('diretorio'), authMiddleware, async (req, r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", filiais: filiais  })
     } catch (error) {
-        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", filiais: filiais  })
     }
 })
 
@@ -174,9 +174,9 @@ router.post('/nota_fiscal', upload.single('diretorio'), authMiddleware, async (r
             empresaId: funcionario[0].empresaId
         })
 
-        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", nome_empresa: nome_empresa, filiais: filiais })
+        res.render('includes/TelaInicial', { mensagem: "Arquivo inserido com sucesso", filiais: filiais })
     } catch (error) {
-        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", nome_empresa: nome_empresa, filiais: filiais  })
+        res.render('includes/TelaInicial', { mensagem: "Erro ao salvar o arquivo", filiais: filiais  })
     }
 })
 

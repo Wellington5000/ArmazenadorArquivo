@@ -4,7 +4,10 @@
 </head>
 
 <img class="imgLogo" src="/iconFile.png" alt="">
-<h4 class="newLogo">File <span>Storage</span></h4>
+<div id="logo">
+    <h4 class="newLogo">File <span>Storage</span></h4>
+    <a href="/sair">Sair</a>
+</div>
 <h5 id="cabecalho">Informações do Documento</h5>
 
 <div class="telaInicial">
@@ -62,11 +65,9 @@
     <table>
         <thead>
             <tr>
-                <th>Nº Alvará</th>
-                <th>CNPJ</th>
-                <th>Data de Emissão</th>
-                <th>Data de Vencimento</th>
-                <th>Ações</th>
+                {{#each cabecalho}}
+                <th>{{this}}</th>
+                {{/each}}
             </tr>
         </thead>
 
@@ -96,8 +97,9 @@
     </table>
 </div>
 
-<a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><img class="iconAdd" src="/iconAdd.png"
-        alt=""></a>
+
+<a id="iconAdd" href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><i
+        class="bi bi-plus-circle-fill"></i></a>
 
 
 
@@ -106,9 +108,7 @@
 
 
 
-
-
-<!-- ________________________________________________________________Modal Novo Arquivo______________________________________________________________________________________________________ -->
+<!-- ________________________________________________________________Modal Novo Ax'rquivo______________________________________________________________________________________________________ -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -129,7 +129,7 @@
                 </div>
                 <br>
 
-                <form action="" method="post" id="FormAlvara">
+                <form action="/novo/alvara" method="post" id="FormAlvara" enctype="multipart/form-data">
                     <div class="col-md-10 offset-md-1">
                         <input type="number" name="num_alvara" class="form-control" placeholder="Número do Alvará">
                     </div>
@@ -141,12 +141,14 @@
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_emissao" class="form-control" placeholder="Data de Emissão">
+                        <input type="text" onfocus="(this.type='date')" name="data_emissao" class="form-control"
+                            placeholder="Data de Emissão">
                     </div>
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_validade" class="form-control" placeholder="Data de Validade">
+                        <input type="text" onfocus="(this.type='date')" name="data_validade" class="form-control"
+                            placeholder="Data de Validade">
                     </div>
                     <br>
 
@@ -154,10 +156,17 @@
                         <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
                     </div>
                     <br>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnFechar"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    </div>
                 </form>
 
 
-                <form action="" method="post" id="FormComprovante" hidden>
+                <form action="/novo/comprovante" method="post" id="FormComprovante" enctype="multipart/form-data"
+                    hidden>
                     <div class="col-md-10 offset-md-1">
                         <input type="number" name="cpf_cnpj_beneficiario" class="form-control"
                             placeholder="CPF/CNPJ Beneficiário">
@@ -176,18 +185,25 @@
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
+                        <input type="text" onfocus="(this.type='date')" name="data_pagamento" class="form-control"
+                            placeholder="Data de Pagamento">
                     </div>
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_pagamento" class="form-control" placeholder="Data de Pagamento">
+                        <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
                     </div>
                     <br>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnFechar"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    </div>
                 </form>
 
 
-                <form action="" method="post" id="FormContrato" hidden>
+                <form action="/novo/contrato" method="post" id="FormContrato" enctype="multipart/form-data" hidden>
                     <div class="col-md-10 offset-md-1">
                         <input type="number" name="cnpj_empregador" class="form-control" placeholder="CNPJ Empregador">
                     </div>
@@ -204,31 +220,34 @@
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_pagamento" class="form-control" placeholder="Data de Pagamento">
-                    </div>
-                    <br>
-
-                    <div class="col-md-10 offset-md-1">
                         <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
                     </div>
                     <br>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnFechar"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    </div>
                 </form>
 
 
 
-                <form action="" method="post" id="FormFatura" hidden>
+                <form action="/novo/fatura" method="post" id="FormFatura" enctype="multipart/form-data" hidden>
                     <div class="col-md-10 offset-md-1">
                         <input type="number" name="num_fatura" class="form-control" placeholder="Número da Fatura">
                     </div>
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_emissao" class="form-control" placeholder="Data de Emissão">
+                        <input type="text" onfocus="(this.type='date')" name="data_emissao" class="form-control"
+                            placeholder="Data de Emissão">
                     </div>
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="date" name="data_vencimento" class="form-control" placeholder="Data de Vencimento">
+                        <input type="text" onfocus="(this.type='date')" name="data_vencimento" class="form-control"
+                            placeholder="Data de Vencimento">
                     </div>
                     <br>
 
@@ -236,13 +255,23 @@
                         <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
                     </div>
                     <br>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnFechar"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    </div>
                 </form>
 
 
 
-                <form action="" method="post" id="FormNotaFiscal" hidden>
+                <form action="/novo/nota_fiscal" method="post" id="FormNotaFiscal" enctype="multipart/form-data" hidden>
                     <div class="col-md-10 offset-md-1">
-                        <input type="number" name="cod_filial" class="form-control" placeholder="Filial">
+                        <select name="cod_filial" class="form-select" aria-label="Default select example">
+                            {{#each filiais}}
+                            <option value={{dataValues.codigo}}>{{dataValues.razao_social}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                     <br>
 
@@ -265,12 +294,15 @@
                         <input type="file" name="diretorio" class="form-control" placeholder="Número do Alvará">
                     </div>
                     <br>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnFechar"
+                            data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="btnFechar" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary" id="btnSalvar">Salvar</button>
-            </div>
+
         </div>
     </div>
 </div>

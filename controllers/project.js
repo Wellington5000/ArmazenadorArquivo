@@ -12,23 +12,13 @@ const Empresa = require('../models/company')
 router.get('/', authMiddleware, async (req, res) => {
     try {
         var empresa = await Empresa.findAll({ where: { id: req.cookies.empresaId } })
-        global.filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
-        nome_empresa = empresa[0].razao_social
+        var filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
         
-        res.render('includes/TelaInicial', { nome_empresa: nome_empresa})
+        res.render('includes/TelaInicial', { filiais: filiais})
     } catch (error) {
-        res.render('includes/TelaLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true, nome_empresa: nome_empresa })
+        res.render('includes/TelaLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true })
     }
 })
-
-router.get('/novo', authMiddleware, (req, res) => {
-    res.render('includes/TelaInicial', { nome_empresa: nome_empresa, filiais: filiais })
-})
-
-router.get('/consultar', authMiddleware, (req, res) => {
-    res.render('includes/TelaInicial', { texto: 'Wellington', nome_empresa: nome_empresa })
-})
-
 
 router.get('/login', (req, res) => {
     res.render('includes/TelaLogin', { notLogon: true, nome_empresa: "Armazenador de Arquivos" })
@@ -46,11 +36,11 @@ router.post('/autenticacao', async (req, res) => {
     var result = await Funcionario.findAll({ where: { email: email } })
 
     if (!result[0]) {
-        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
+        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos" })
     }
     if (!await bcrypt.compare(senha, result[0].senha)) {
         console.log('Senha incorreta')
-        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos", nome_empresa: nome_empresa })
+        return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos" })
     }
 
     //Expiração em 10 dias

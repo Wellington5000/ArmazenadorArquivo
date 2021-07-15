@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
 
     //Verifica se o token é válido
     jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if (err) { return res.render('includes/FormLogin', {notLogon: true, mensagem: "Faça login novamente para continuar", nome_empresa: nome_empresa}) }
+        if (err) { return res.render('includes/TelaLogin', {mensagem: "Faça login novamente para continuar"}) }
         req.userId = decoded.id
         return next()
     })

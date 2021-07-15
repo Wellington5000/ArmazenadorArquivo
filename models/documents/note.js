@@ -2,6 +2,7 @@ const Database = require('../database')
 const Sequelize = require('sequelize')
 const Funcionario = require('../employee')
 const Empresa = require('../company')
+const Filial = require('../branch')
 
 const Note = Database.define('nota_fiscal', {
     id: {
