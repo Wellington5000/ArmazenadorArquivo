@@ -12,7 +12,7 @@ const Empresa = require('../models/company')
 router.get('/', authMiddleware, async (req, res) => {
     try {
         var empresa = await Empresa.findAll({ where: { id: req.cookies.empresaId } })
-        var filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
+        global.filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
         
         res.render('includes/TelaInicial', { filiais: filiais})
     } catch (error) {

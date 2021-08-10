@@ -55,7 +55,7 @@ router.post('/alvara', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho})
+    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho, filiais: filiais})
 })
 
 router.post('/comprovante', authMiddleware, async (req, res) => {
@@ -88,7 +88,7 @@ router.post('/comprovante', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho})
+    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho, filiais: filiais})
 })
 
 
@@ -121,7 +121,7 @@ router.post('/contrato', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho})
+    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho, filiais: filiais})
 })
 
 
@@ -155,7 +155,7 @@ router.post('/fatura', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho})
+    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho, filiais: filiais})
 })
 
 
@@ -188,7 +188,7 @@ router.post('/nota_fiscal', authMiddleware, async (req, res) => {
         result[index]._options = ''
     })
 
-    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho})
+    res.render('includes/TelaInicial', { result: result, cabecalho: cabecalho, filiais: filiais})
 })
 
 module.exports = router
