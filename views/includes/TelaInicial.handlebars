@@ -179,7 +179,7 @@
                     <br>
 
                     <div class="col-md-10 offset-md-1">
-                        <input type="number" name="cpf_cnpf_pagador" class="form-control"
+                        <input type="number" name="cpf_cnpj_pagador" class="form-control"
                             placeholder="CPF/CNPJ do Pagador">
                     </div>
                     <br>
@@ -205,12 +205,17 @@
 
                 <form action="/novo/contrato" method="post" id="FormContrato" enctype="multipart/form-data" hidden>
                     <div class="col-md-10 offset-md-1">
-                        <input type="number" name="cnpj_empregador" class="form-control" placeholder="CNPJ Empregador">
+                        <input type="number" name="cnpj_empregador" class="form-control" placeholder="CNPJ da Empresa">
                     </div>
                     <br>
 
                     <div class="col-md-10 offset-md-1">
                         <input type="text" name="nome_empregado" class="form-control" placeholder="Nome do Empregado">
+                    </div>
+                    <br>
+
+                    <div class="col-md-10 offset-md-1">
+                        <input type="number" name="cpf_empregado" class="form-control" placeholder="CPF do Empregado">
                     </div>
                     <br>
 
