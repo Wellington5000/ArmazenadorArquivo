@@ -23,8 +23,8 @@
         <form action="/consultar/alvara" id="FormFilterAlvara" method="POST">
             <input type="number" name="num_alvara" placeholder="Número Alvará">
             <input type="number" name="cnpj" placeholder="CNPJ">
-            <input type="date" name="data_emissao" placeholder="Data de Emissão">
-            <input type="date" name="data_vencimento" placeholder="Data de Vencimento">
+            <input type="text" onfocus="(this.type='date')" name="data_emissao" placeholder="Data de Emissão">
+            <input type="text" onfocus="(this.type='date')" placeholder="Data de Vencimento">
             <input type="submit" id="btnNewConsult" value="Consultar">
         </form>
 
@@ -32,7 +32,7 @@
             <input type="number" name="cpf_cnpj_beneficiario" placeholder="CPF/CNPJ Pagador">
             <input type="text" name="nome_pagador" placeholder="Nome do Pagador">
             <input type="number" name="cpf_cnpj_pagador" placeholder="CPF/CNPJ Pagador">
-            <input type="date" name="data_pagamento" placeholder="Data de Pagamento">
+            <input type="text" onfocus="(this.type='date')" name="data_pagamento" placeholder="Data de Pagamento">
             <input type="submit" id="btnNewConsult" value="Consultar">
         </form>
 
@@ -46,8 +46,8 @@
 
         <form action="/consultar/fatura" hidden id="FormFilterFatura" method="POST">
             <input type="number" name="num_fatura" placeholder="Número da Fatura">
-            <input type="date" name="data_emissao" placeholder="Data de Emissão">
-            <input type="date" name="data_vencimento" placeholder="Data de Vencimento">
+            <input type="text" onfocus="(this.type='date')" name="data_emissao" placeholder="Data de Emissão">
+            <input type="text" onfocus="(this.type='date')" name="data_vencimento" placeholder="Data de Vencimento">
             <input type="submit" id="btnNewConsult" value="Consultar">
         </form>
 
