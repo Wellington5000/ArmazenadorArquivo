@@ -4,10 +4,25 @@
 </head>
 
 <img class="imgLogo" src="/iconFile.png" alt="">
-<div id="logo">
-    <h4 class="newLogo">File <span>Storage</span></h4>
-    <a href="/sair">Sair</a>
-</div>
+<ul>
+    <li>
+        <h4 class="newLogo">File <span>Storage</span></h4>
+    </li>
+    {{#if isAdmin}}
+        <li>
+            <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Adicionar usuário</a>
+        </li>
+
+    {{else}}
+        <li>
+            <a href="#"></a>
+        </li>
+    {{/if}}
+    <li>
+        <a href="/sair">Sair</a>
+    </li>
+</ul>
+<br>
 <h5 id="cabecalho">Informações do Documento</h5>
 
 <div class="telaInicial">

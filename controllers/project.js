@@ -14,7 +14,7 @@ router.get('/', authMiddleware, async (req, res) => {
         var empresa = await Empresa.findAll({ where: { id: req.cookies.empresaId } })
         global.filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
         
-        res.render('includes/TelaInicial', { filiais: filiais})
+        res.render('includes/TelaInicial', { filiais: filiais, isAdmin: isAdmin })
     } catch (error) {
         res.render('includes/TelaLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true })
     }
@@ -32,7 +32,7 @@ function gerateToken(params = {}) {
 router.post('/autenticacao', async (req, res) => {
     const email = req.body.email
     const senha = req.body.senha
-
+    
     var result = await Funcionario.findAll({ where: { email: email } })
 
     if (!result[0]) {
@@ -42,6 +42,8 @@ router.post('/autenticacao', async (req, res) => {
         console.log('Senha incorreta')
         return res.render('includes/TelaLogin', { notLogon: true, mensagem: "Usuário ou senha inválidos" })
     }
+
+    global.isAdmin = result[0].isAdmin
 
     //Expiração em 10 dias
     res.cookie('token', gerateToken({ id: result.id }), { maxAge: 900000000, httpOnly: true })

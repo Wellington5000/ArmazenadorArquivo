@@ -31,6 +31,9 @@ const Employee = Database.define('Funcionario', {
     senha: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    isAdmin: {
+        type: Sequelize.BOOLEAN
     }
 })
 

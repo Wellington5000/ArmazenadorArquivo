@@ -42,13 +42,14 @@ router.get('/cadastrar_funcionario', authMiddleware, async (req, res) => {
     try {
         const hash = await bcrypt.hash('123456', 10)
         await Funcionario.create({
-            nome: 'Wallyson Italo',
-            cargo: 'Analista',
+            nome: 'Administrador',
+            cargo: 'Admin',
             data_nascimento: '1999/01/31',
-            email: 'wallyson@gmail.com',
+            email: 'admin@gmail.com',
             senha: hash,
+            isAdmin: true,
             filialId: 1,
-            empresaId: 102
+            empresaId: 101
         })
 
         res.render('includes/index', {mensagem: "Funcionário cadastrado"})
