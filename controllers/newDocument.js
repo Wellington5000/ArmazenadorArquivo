@@ -38,16 +38,17 @@ router.get('/cadastrar_empresa', authMiddleware, async (req, res) => {
     }
 })
 
-router.get('/cadastrar_funcionario', authMiddleware, async (req, res) => {
+router.post('/cadastrar_funcionario', authMiddleware, async (req, res) => {
     try {
+        (req.body.admin) ? isAdmin = true : isAdmin = false
         const hash = await bcrypt.hash('123456', 10)
         await Funcionario.create({
-            nome: 'Administrador',
-            cargo: 'Admin',
-            data_nascimento: '1999/01/31',
-            email: 'admin@gmail.com',
+            nome: req.body.nome,
+            cargo: req.body.cargo,
+            data_nascimento: req.body.data_nascimento,
+            email: req.body.email,
             senha: hash,
-            isAdmin: true,
+            isAdmin: isAdmin,
             filialId: 1,
             empresaId: 101
         })

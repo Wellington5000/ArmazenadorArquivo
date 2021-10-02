@@ -9,14 +9,14 @@
         <h4 class="newLogo">File <span>Storage</span></h4>
     </li>
     {{#if isAdmin}}
-        <li>
-            <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Adicionar usuário</a>
-        </li>
+    <li>
+        <a href="#novoUsuario" data-toggle="modal" data-target="#novoUsuario">Adicionar usuário</a>
+    </li>
 
     {{else}}
-        <li>
-            <a href="#"></a>
-        </li>
+    <li>
+        <a href="#"></a>
+    </li>
     {{/if}}
     <li>
         <a href="/sair">Sair</a>
@@ -322,11 +322,70 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
 
+
+
+<div class="modal fade" id="novoUsuario" tabindex="-1" role="dialog" aria-labelledby="novoUsuario" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Usuário</h5>
+            </div>
+
+            <form action="/novo/cadastrar_funcionario" method="post" id="FormAlvara">
+                <br>
+                <div class="col-md-10 offset-md-1">
+                    <input type="text" name="nome" class="form-control" placeholder="Nome">
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <input type="text" name="cargo" class="form-control" placeholder="Cargo">
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <input type="text" onfocus="(this.type='date')" name="data_nascimento" class="form-control"
+                        placeholder="Data de Nascimento">
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <input type="text" name="email" class="form-control" placeholder="Email">
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <input type="password" name="senha" class="form-control" placeholder="Senha">
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <select name="cod_filial" class="form-select" aria-label="Default select example">
+                        {{#each filiais}}
+                        <option value={{dataValues.codigo}}>{{dataValues.razao_social}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <br>
+
+                <div class="col-md-10 offset-md-1">
+                    <input type="checkbox" id="admin" name="admin">
+                    <label for="admin"> Administrador</label><br>
+                </div>
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnFechar" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script src="/newFile.js"></script>
 <script src="/Consult.js"></script>
