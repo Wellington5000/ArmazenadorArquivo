@@ -53,9 +53,9 @@ router.post('/cadastrar_funcionario', authMiddleware, async (req, res) => {
             empresaId: 101
         })
 
-        res.render('includes/index', {mensagem: "Funcionário cadastrado"})
+        res.render('includes/TelaInicial', {mensagem: "Funcionário cadastrado"})
     } catch (error) {
-        res.render('includes/index', {mensagem: "Erro ao cadastrar funcionário" + error})
+        res.render('includes/TelaInicial', {mensagem: "Erro ao cadastrar funcionário" + error})
     }
 })
 

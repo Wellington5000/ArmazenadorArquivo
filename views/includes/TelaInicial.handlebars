@@ -13,6 +13,9 @@
         <a href="#novoUsuario" data-toggle="modal" data-target="#novoUsuario">Adicionar usuário</a>
     </li>
 
+    <li>
+        <a href="#funcionarios" data-toggle="modal" data-target="#funcionarios">Funcionários</a>
+    </li>
     {{else}}
     <li>
         <a href="#"></a>
@@ -364,15 +367,6 @@
                 <br>
 
                 <div class="col-md-10 offset-md-1">
-                    <select name="cod_filial" class="form-select" aria-label="Default select example">
-                        {{#each filiais}}
-                        <option value={{dataValues.codigo}}>{{dataValues.razao_social}}</option>
-                        {{/each}}
-                    </select>
-                </div>
-                <br>
-
-                <div class="col-md-10 offset-md-1">
                     <input type="checkbox" id="admin" name="admin">
                     <label for="admin"> Administrador</label><br>
                 </div>
@@ -386,6 +380,41 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal Funcionários -->
+<div class="modal fade" id="funcionarios" tabindex="-1" role="dialog" aria-labelledby="funcionarios" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modalFuncionarios">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Usuários</h5>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Data de Nascimento</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each funcionarios}}
+                    <tr>
+                        <td scope="row">{{dataValues.nome}}</td>
+                        <td>{{dataValues.cargo}}</td>
+                        <td>{{#formatDate dataValues.data_nascimento}}{{/formatDate}}</td>
+                        <td>{{dataValues.email}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
 <script src="/newFile.js"></script>
 <script src="/Consult.js"></script>

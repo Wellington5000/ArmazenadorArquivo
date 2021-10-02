@@ -12,9 +12,14 @@ const Empresa = require('../models/company')
 router.get('/', authMiddleware, async (req, res) => {
     try {
         var empresa = await Empresa.findAll({ where: { id: req.cookies.empresaId } })
+
+        if(isAdmin){
+            var funcionarios = await Funcionario.findAll({where: {empresaId: req.cookies.empresaId }})
+        }
+        console.log(funcionarios)
         global.filiais = await Filial.findAll({where: {EmpresaId: empresa[0].id}})
         
-        res.render('includes/TelaInicial', { filiais: filiais, isAdmin: isAdmin })
+        res.render('includes/TelaInicial', { filiais: filiais, isAdmin: isAdmin, funcionarios: funcionarios })
     } catch (error) {
         res.render('includes/TelaLogin', { mensagem: 'Faça login para continuar' + error, notLogon: true })
     }

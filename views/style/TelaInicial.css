@@ -21,7 +21,7 @@ ul {
 li {
     float: left;
 }
-li:nth-last-child(1), li:nth-last-child(2) {
+li:nth-last-child(1), li:nth-last-child(2), li:nth-last-child(3) {
     margin-top: 30px;
     float: none;
     display: inline-block;
@@ -138,4 +138,13 @@ tr a{
 
 tr:nth-child(even) a{
     color: rgb(255, 255, 255);
+}
+
+
+#funcionarios{
+    margin-left: -15%;
+}
+
+#modalFuncionarios{
+    width: 1000px;
 }
